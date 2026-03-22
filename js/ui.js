@@ -175,12 +175,20 @@ function renderPlanDetail(planId) {
       </div>
     </div>
   `;
+
+  // Fetch real-time weather after DOM update
+  setTimeout(() => afterRenderPlanDetail(), 100);
 }
 
 // ===== SWITCH DAY =====
 function switchDay(dayIndex) {
   currentDay = dayIndex;
   renderPlanDetail(currentPlan);
+}
+
+// After render, fetch weather
+function afterRenderPlanDetail() {
+  updateWeatherWidget(currentPlan, currentDay);
 }
 
 // ===== MAP HELPERS =====
@@ -307,17 +315,144 @@ function renderRouteOptions(planId) {
   `;
 }
 
-// ===== WEATHER WIDGET =====
+// ===== WEATHER WIDGET (Open-Meteo API) =====
+const weatherCache = {};
+
+const WMO_ICONS = {
+  0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️',
+  45: '🌫️', 48: '🌫️',
+  51: '🌦️', 53: '🌧️', 55: '🌧️',
+  61: '🌧️', 63: '🌧️', 65: '🌧️',
+  71: '🌨️', 73: '🌨️', 75: '❄️',
+  80: '🌦️', 81: '🌧️', 82: '🌧️',
+  95: '⛈️', 96: '⛈️', 99: '⛈️',
+};
+
+const WMO_TEXT = {
+  0: 'Trời quang', 1: 'Ít mây', 2: 'Mây rải rác', 3: 'Nhiều mây',
+  45: 'Sương mù', 48: 'Sương mù',
+  51: 'Mưa phùn nhẹ', 53: 'Mưa phùn', 55: 'Mưa phùn dày',
+  61: 'Mưa nhẹ', 63: 'Mưa vừa', 65: 'Mưa to',
+  71: 'Tuyết nhẹ', 73: 'Tuyết vừa', 75: 'Tuyết dày',
+  80: 'Mưa rào nhẹ', 81: 'Mưa rào', 82: 'Mưa rào to',
+  95: 'Giông', 96: 'Giông + mưa đá', 99: 'Giông mạnh',
+};
+
+function getDayDate(dayNum) {
+  // Day 1 = 3/5/2026, Day 2 = 4/5/2026, Day 3 = 5/5/2026
+  const dates = { 1: '2026-05-03', 2: '2026-05-04', 3: '2026-05-05' };
+  return dates[dayNum] || '2026-05-03';
+}
+
+async function fetchWeatherForStops(stops, date) {
+  const majorStops = stops.filter(s => s.type === 'major' && s.lat && s.lng);
+  if (majorStops.length === 0) return null;
+
+  const results = [];
+  for (const stop of majorStops) {
+    const cacheKey = `${stop.lat},${stop.lng},${date}`;
+    if (weatherCache[cacheKey]) {
+      results.push({ name: stop.name, ...weatherCache[cacheKey] });
+      continue;
+    }
+
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${stop.lat}&longitude=${stop.lng}&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Asia/Tokyo&start_date=${date}&end_date=${date}`;
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.daily) {
+        const weather = {
+          min: Math.round(data.daily.temperature_2m_min[0]),
+          max: Math.round(data.daily.temperature_2m_max[0]),
+          code: data.daily.weathercode[0],
+        };
+        weatherCache[cacheKey] = weather;
+        results.push({ name: stop.name, ...weather });
+      }
+    } catch {
+      // API fail — skip this stop
+    }
+  }
+  return results.length > 0 ? results : null;
+}
+
 function renderWeatherWidget() {
+  // Render placeholder first, then fetch real data
   return `
-    <div class="weather-widget">
-      <div class="weather-widget__title">🌡️ Dự báo tháng 5</div>
-      ${WEATHER.map(w => `
+    <div class="weather-widget" id="weather-widget">
+      <div class="weather-widget__title">🌡️ Thời tiết điểm đến</div>
+      <div class="weather-widget__row" style="color: rgba(255,255,255,0.4);">
+        <span>Đang tải dữ liệu...</span>
+        <span class="font-mono">⏳</span>
+      </div>
+    </div>
+  `;
+}
+
+async function updateWeatherWidget(planId, dayIndex) {
+  const plan = PLANS[planId];
+  const day = plan.days[dayIndex];
+  const date = getDayDate(day.dayNum);
+  const widget = document.getElementById('weather-widget');
+  if (!widget) return;
+
+  // Check if date is within forecast range (16 days)
+  const now = new Date();
+  const targetDate = new Date(date);
+  const diffDays = Math.ceil((targetDate - now) / 86400000);
+
+  if (diffDays > 16 || diffDays < 0) {
+    // Fallback to static data
+    const dayStops = day.stops.filter(s => s.type === 'major' && s.weather);
+    widget.innerHTML = `
+      <div class="weather-widget__title">🌡️ Thời tiết điểm đến (dự báo tham khảo)</div>
+      ${dayStops.length > 0 ? dayStops.map(s => `
+        <div class="weather-widget__row">
+          <span>${s.name.substring(0, 15)}</span>
+          <span class="font-mono">${s.weather}</span>
+        </div>
+      `).join('') : WEATHER.map(w => `
         <div class="weather-widget__row">
           <span>${w.location}</span>
           <span class="font-mono">${w.temp} ${w.icon}</span>
         </div>
       `).join('')}
+      <div style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 8px;">
+        📅 Dự báo real-time khả dụng trong 16 ngày trước chuyến đi
+      </div>
+    `;
+    return;
+  }
+
+  const weatherData = await fetchWeatherForStops(day.stops, date);
+
+  if (!weatherData) {
+    widget.innerHTML = `
+      <div class="weather-widget__title">🌡️ Thời tiết điểm đến</div>
+      <div class="weather-widget__row" style="color: rgba(255,255,255,0.4);">
+        <span>Không tải được dữ liệu</span>
+        <span class="font-mono">⚠️</span>
+      </div>
+    `;
+    return;
+  }
+
+  const dateStr = new Date(date).toLocaleDateString('vi-VN', { weekday: 'short', day: 'numeric', month: 'numeric' });
+
+  widget.innerHTML = `
+    <div class="weather-widget__title">🌡️ Thời tiết ${dateStr} (real-time)</div>
+    ${weatherData.map(w => `
+      <div class="weather-widget__row">
+        <span>${w.name.substring(0, 15)}</span>
+        <span class="font-mono">${w.min}~${w.max}°C ${WMO_ICONS[w.code] || '🌤️'}</span>
+      </div>
+      <div style="font-size: 0.68rem; color: rgba(255,255,255,0.35); padding: 0 0 4px 0;">
+        ${WMO_TEXT[w.code] || ''}
+      </div>
+    `).join('')}
+    <div style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 8px;">
+      🔄 Nguồn: Open-Meteo · Cập nhật khi load trang
     </div>
   `;
 }
