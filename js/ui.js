@@ -153,6 +153,8 @@ function renderPlanDetail(planId) {
         <div class="plan-viewer__header">
           <h2>${day.title} — ${day.subtitle}</h2>
           <p>${desc}</p>
+          ${currentDay === 0 && plan.routeGo ? `<div style="margin-top: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.5);">🚗 ${plan.routeGo}</div>` : ''}
+          ${currentDay === plan.days.length - 1 && plan.routeReturn ? `<div style="margin-top: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.5);">🔙 ${plan.routeReturn}</div>` : ''}
           <div class="plan-viewer__actions">
             <a href="${routeUrl}" target="_blank" rel="noopener" class="plan-viewer__btn">
               📍 Open route
@@ -294,22 +296,22 @@ function renderDistances(planId, dayIndex) {
 // ===== ROUTE OPTIONS =====
 function renderRouteOptions(planId) {
   const plan = PLANS[planId];
-  if (!plan.routes || plan.routes.length === 0) return '';
+  if (!plan.routeOptions || plan.routeOptions.length === 0) return '';
 
   return `
     <div class="cost-breakdown" style="margin-top: var(--space-md)">
-      <div class="cost-breakdown__title">🛣️ Cung đường Day 1 (向島 → Kurobe)</div>
-      ${plan.routes.map(r => `
-        <div class="cost-breakdown__row" style="${r.recommended ? 'font-weight: 500;' : 'opacity: 0.7;'}">
-          <span>${r.recommended ? '✅ ' : ''}${r.name}</span>
-          <span class="font-mono">${r.km}km · ${r.time}</span>
-        </div>
-        <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); padding: 0 0 8px 0; line-height: 1.4;">
-          ${r.desc}
-        </div>
-      `).join('')}
-      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 4px; font-style: italic;">
-        🔙 Về: 北陸道 → 関越道 (tất cả plans, an toàn lái đêm)
+      <div class="cost-breakdown__title">🛣️ Cung đường</div>
+      <div class="cost-breakdown__row" style="font-weight: 500;">
+        <span>🚗 Đi</span>
+        <span class="font-mono" style="font-size: 0.72rem; text-align: right;">${plan.routeGo}</span>
+      </div>
+      <div class="cost-breakdown__row" style="font-weight: 500;">
+        <span>🔙 Về</span>
+        <span class="font-mono" style="font-size: 0.72rem; text-align: right;">${plan.routeReturn}</span>
+      </div>
+      <div style="margin-top: 10px; font-size: 0.7rem; color: rgba(255,255,255,0.4);">
+        <div style="margin-bottom: 4px; color: rgba(255,255,255,0.5);">Các cung đường khả dụng (Day 1):</div>
+        ${plan.routeOptions.map(r => `<div style="padding: 2px 0; line-height: 1.5;">${r}</div>`).join('')}
       </div>
     </div>
   `;

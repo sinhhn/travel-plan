@@ -14,10 +14,12 @@ const PLANS = {
       { icon: '🏘️', text: '五箇山 UNESCO — yên tĩnh, ít đông' },
       { icon: '🚗', text: 'Tổng ~1,080km (3 ngày)' },
     ],
-    routes: [
-      { id: 1, name: '上信越道 + 北陸道', desc: 'Ngắn nhất đến 五箇山. Cảnh núi→biển đẹp.', km: 380, time: '5h30', recommended: true },
-      { id: 2, name: '関越道 + 北陸道 (via 長岡)', desc: 'Dễ lái nhất, ít cua. Trẻ ít say. Xa hơn 50km.', km: 430, time: '6h', recommended: false },
-      { id: 3, name: '上信越道 xuyên Nagano', desc: 'Cảnh núi đẹp nhất nhưng cua nhiều, trẻ dễ say.', km: 360, time: '5h30', recommended: false },
+    routeGo: '上信越道 + 北陸道 (380km · 5h30) — cảnh núi→biển đẹp',
+    routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm, ít cua',
+    routeOptions: [
+      '✅ 上信越道 + 北陸道 — Ngắn nhất đến 五箇山. Cảnh núi→biển đẹp. (380km · 5h30)',
+      '関越道 + 北陸道 via 長岡 — Dễ lái nhất, ít cua. Trẻ ít say. (430km · 6h)',
+      '上信越道 xuyên Nagano — Cảnh núi đẹp nhất nhưng cua nhiều, trẻ dễ say. (360km · 5h30)',
     ],
     days: [
       {
@@ -202,10 +204,12 @@ const PLANS = {
       { icon: '♨️', text: 'Onsen, bãi biển, thủy cung' },
       { icon: '🚗', text: 'Tổng ~960km (3 ngày)' },
     ],
-    routes: [
-      { id: 1, name: '関越道 + 北陸道 (via 長岡)', desc: 'Dễ lái nhất, ít cua. SA lớn. Trẻ ngủ ngon.', km: 400, time: '5h30', recommended: true },
-      { id: 2, name: '上信越道 + 北陸道', desc: 'Ngắn hơn 30km. Cảnh núi→biển đẹp.', km: 370, time: '5h', recommended: false },
-      { id: 3, name: '上信越道 xuyên Nagano', desc: 'Ngắn nhất nhưng cua núi nhiều, không khuyên cho trẻ nhỏ.', km: 350, time: '5h', recommended: false },
+    routeGo: '関越道 + 北陸道 via 長岡 (400km · 5h30) — dễ lái nhất, trẻ ngủ ngon',
+    routeReturn: '北陸道 → 関越道 (400km · 5h) — an toàn lái đêm',
+    routeOptions: [
+      '✅ 関越道 + 北陸道 via 長岡 — Dễ lái nhất, ít cua. SA lớn. Trẻ ngủ ngon. (400km · 5h30)',
+      '上信越道 + 北陸道 — Ngắn hơn 30km. Cảnh núi→biển đẹp. (370km · 5h)',
+      '上信越道 xuyên Nagano — Ngắn nhất nhưng cua núi nhiều, không khuyên cho trẻ nhỏ. (350km · 5h)',
     ],
     days: [
       {
@@ -378,10 +382,12 @@ const PLANS = {
       { icon: '🔄', text: 'Đi 中央道, về 関越道 — không trùng đường' },
       { icon: '🚗', text: 'Tổng ~1,050km (3 ngày)' },
     ],
-    routes: [
-      { id: 1, name: '中央道 → 長野道 → 松本 → 大町/Hakuba → Kurobe', desc: 'Cảnh Alps đẹp nhất! Thẳng đến Matsumoto.', km: 380, time: '6h', recommended: true },
-      { id: 2, name: '中央道 → 長野道 → 上信越道 → 北陸道', desc: 'Toàn expressway, nhanh hơn nhưng vòng.', km: 420, time: '5h30', recommended: false },
-      { id: 3, name: '関越道 → 上信越道 → 長野道 → 松本', desc: 'Alternative nhưng phải quay đầu, ít hiệu quả.', km: 400, time: '6h', recommended: false },
+    routeGo: '中央道 → 長野道 → 松本 → 大町/Hakuba (380km · 6h) — cảnh Alps đẹp nhất',
+    routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm, ít cua',
+    routeOptions: [
+      '✅ 中央道 → 長野道 → 松本 → 大町 → Kurobe — Cảnh Alps đẹp nhất! Thẳng Matsumoto. (380km · 6h)',
+      '中央道 → 長野道 → 上信越道 → 北陸道 — Toàn expressway, nhanh hơn nhưng vòng. (420km · 5h30)',
+      '関越道 → 上信越道 → 長野道 → 松本 — Alternative nhưng phải quay đầu. (400km · 6h)',
     ],
     days: [
       {
