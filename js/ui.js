@@ -7,17 +7,17 @@ const DAY_DESCRIPTIONS = {
   A: [
     'Xuất phát 6h sáng từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in HOTEL R9 The Yard Kurobe.',
     'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Chiều trolley hẻm núi Kurobe. Ngày rất dài và đáng nhớ!',
-    'Rời Kurobe sớm 8h sáng, về Tokyo trước tắc chiều GW. Trolley đã đi hôm qua!',
+    'Sáng tản bộ Kansui Park. Chiều nghỉ ngơi tránh Uターンラッシュ (13-18h). Xuất phát về Tokyo sau 19:00 — đường thông, về ~0:00.',
   ],
   B: [
     'Xuất phát 6h sáng. Làng gassho 白川郷 nổi tiếng nhất thế giới. Chiều tản bộ Kansui Park ngắm hoàng hôn. Check-in HOTEL R9 Kurobe.',
     'Thủy cung Uozu cho các bé buổi sáng. Trưa trolley qua hẻm núi Kurobe. Chiều tản bộ phố onsen Unazuki.',
-    'Bảo tàng TAD — rooftop playground miễn phí cho trẻ em. Rời sớm về Tokyo tránh tắc GW.',
+    'Bảo tàng TAD — rooftop playground cho trẻ em. Chiều nghỉ tránh Uターンラッシュ. Xuất phát về Tokyo sau 19:00 — đường thông.',
   ],
   C: [
     'Xuất phát 6h sáng hướng Nagano tránh tắc GW. Matsumoto Castle sáng, Kurobe Dam chiều. Check-in HOTEL R9 Kurobe.',
     'Alpine Route: tường tuyết Murodo buổi sáng. Chiều trolley hẻm núi Kurobe. Về HOTEL R9 nghỉ ngơi.',
-    'Ghé nhanh 五箇山 sáng sớm — yên tĩnh, ít khách. Về Tokyo qua Hokuriku, ít tắc hơn Plan A/B.',
+    'Ghé 五箇山 sáng sớm thong thả. Chiều nghỉ tránh Uターンラッシュ. Xuất phát về Tokyo sau 19:00 qua Hokuriku — đường thông.',
   ],
 };
 
