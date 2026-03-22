@@ -5,19 +5,19 @@ let currentDay = 0;
 // ===== DAY DESCRIPTIONS =====
 const DAY_DESCRIPTIONS = {
   A: [
-    'Xuất phát sớm từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in Toyama, tản bộ Kansui Park ngắm hoàng hôn.',
-    'Ngày đỉnh cao — Tateyama-Kurobe Alpine Route. Tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Tối onsen tại Unazuki.',
-    'Tàu trolley Kurobe buổi sáng ngắm hẻm núi tuyệt đẹp. Trưa rời Toyama về Tokyo trước giờ tắc.',
+    'Xuất phát 6h sáng từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in HOTEL R9 The Yard Kurobe.',
+    'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Chiều trolley hẻm núi Kurobe. Ngày rất dài và đáng nhớ!',
+    'Buổi sáng tản bộ, mua quà. Rời Kurobe sớm về Tokyo tránh tắc GW.',
   ],
   B: [
-    'Làng gassho 白川郷 nổi tiếng nhất thế giới. Đông hơn 五箇山 nhưng hoành tráng hơn, đẹp cho ảnh gia đình. Chiều tản bộ Kansui Park.',
-    'Thủy cung Uozu cho các bé buổi sáng. Chiều trolley qua hẻm núi Kurobe. Tối onsen tại Unazuki YAMANOHA.',
+    'Xuất phát 6h sáng. Làng gassho 白川郷 nổi tiếng nhất thế giới. Chiều tản bộ Kansui Park ngắm hoàng hôn. Check-in HOTEL R9 Kurobe.',
+    'Thủy cung Uozu cho các bé buổi sáng. Trưa trolley qua hẻm núi Kurobe. Chiều tản bộ phố onsen Unazuki.',
     'Bảo tàng TAD — rooftop playground miễn phí cho trẻ em. Rời sớm về Tokyo tránh tắc GW.',
   ],
   C: [
-    'Đi hướng Nagano tránh tắc GW. Matsumoto Castle sáng sớm, chiều vào Kurobe Dam từ phía Ogizawa — ít người hơn hẳn.',
-    'Alpine Route từ Tateyama. Tường tuyết Murodo buổi sáng — đỉnh cao chuyến đi. Chiều về Unazuki nghỉ onsen.',
-    'Trolley hẻm núi sáng sớm, ghé nhanh 五箇山 trên đường về Tokyo. Route khác nên ít tắc hơn.',
+    'Xuất phát 6h sáng hướng Nagano tránh tắc GW. Matsumoto Castle sáng, Kurobe Dam chiều. Check-in HOTEL R9 Kurobe.',
+    'Alpine Route: tường tuyết Murodo buổi sáng. Chiều trolley hẻm núi Kurobe. Về HOTEL R9 nghỉ ngơi.',
+    'Ghé nhanh 五箇山 sáng sớm — yên tĩnh, ít khách. Về Tokyo qua Hokuriku, ít tắc hơn Plan A/B.',
   ],
 };
 
