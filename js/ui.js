@@ -5,19 +5,19 @@ let currentDay = 0;
 // ===== DAY DESCRIPTIONS =====
 const DAY_DESCRIPTIONS = {
   A: [
-    'Xuất phát 6h sáng từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in HOTEL R9 The Yard Kurobe.',
-    'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Chiều trolley hẻm núi Kurobe. Ngày rất dài và đáng nhớ!',
-    'Sáng tản bộ Kansui Park. Chiều nghỉ ngơi tránh Uターンラッシュ (13-18h). Xuất phát về Tokyo sau 19:00 — đường thông, về ~0:00.',
+    '3 xe tập kết nhà anh Hà 6h sáng. Đi 上信越道+北陸道, ghé 五箇山 UNESCO trên đường — yên tĩnh, ít đông. Chiều check-in HOTEL R9.',
+    'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo + đập Kurobe. Chiều trolley hẻm núi. Ngày rất dài và đáng nhớ!',
+    'Sáng 環水公園 + TAD rooftop playground. Chiều nghỉ tránh Uターンラッシュ. Về Tokyo sau 19:00 qua 関越道 — đường thông.',
   ],
   B: [
-    'Xuất phát 6h sáng. Làng gassho 白川郷 nổi tiếng nhất thế giới. Chiều tản bộ Kansui Park ngắm hoàng hôn. Check-in HOTEL R9 Kurobe.',
-    'Thủy cung Uozu cho các bé buổi sáng. Trưa trolley qua hẻm núi Kurobe. Chiều tản bộ phố onsen Unazuki.',
-    'Bảo tàng TAD — rooftop playground cho trẻ em. Chiều nghỉ tránh Uターンラッシュ. Xuất phát về Tokyo sau 19:00 — đường thông.',
+    '3 xe tập kết nhà anh Hà 6h sáng. Đi 関越道+北陸道 (dễ nhất). Chiều ghé 魚津水族館 + ミラージュランド gần hotel.',
+    'Trolley hẻm núi sáng → 宇奈月温泉 tắm chân → ヒスイ海岸 săn đá ngọc bích. Tất cả gần hotel, không vội.',
+    'TAD rooftop + 環水公園 Starbucks đẹp nhất Nhật Bản. Chiều nghỉ tránh tắc. Về Tokyo sau 19:00.',
   ],
   C: [
-    'Xuất phát 6h sáng hướng Nagano tránh tắc GW. Matsumoto Castle sáng, Kurobe Dam chiều. Check-in HOTEL R9 Kurobe.',
+    '3 xe tập kết 6h sáng. Đi 中央道 → 松本城 sáng sớm (tránh đông). Chiều lái qua Alps (大町→Hakuba) — cảnh đẹp nhất trip!',
     'Alpine Route: tường tuyết Murodo buổi sáng. Chiều trolley hẻm núi Kurobe. Về HOTEL R9 nghỉ ngơi.',
-    'Ghé 五箇山 sáng sớm thong thả. Chiều nghỉ tránh Uターンラッシュ. Xuất phát về Tokyo sau 19:00 qua Hokuriku — đường thông.',
+    '魚津水族館 sáng + ヒスイ海岸 săn ngọc. Chiều nghỉ. Về Tokyo sau 19:00 qua 関越道 (khác đường đi 中央道).',
   ],
 };
 
@@ -169,6 +169,7 @@ function renderPlanDetail(planId) {
 
         <div class="plan-viewer__extras">
           ${renderDistances(planId, currentDay)}
+          ${renderRouteOptions(planId)}
           ${renderWeatherWidget()}
         </div>
       </div>
@@ -277,6 +278,30 @@ function renderDistances(planId, dayIndex) {
       <div class="cost-breakdown__total">
         <span>TỔNG NGÀY</span>
         <span>${totalKm}km</span>
+      </div>
+    </div>
+  `;
+}
+
+// ===== ROUTE OPTIONS =====
+function renderRouteOptions(planId) {
+  const plan = PLANS[planId];
+  if (!plan.routes || plan.routes.length === 0) return '';
+
+  return `
+    <div class="cost-breakdown" style="margin-top: var(--space-md)">
+      <div class="cost-breakdown__title">🛣️ Cung đường Day 1 (向島 → Kurobe)</div>
+      ${plan.routes.map(r => `
+        <div class="cost-breakdown__row" style="${r.recommended ? 'font-weight: 500;' : 'opacity: 0.7;'}">
+          <span>${r.recommended ? '✅ ' : ''}${r.name}</span>
+          <span class="font-mono">${r.km}km · ${r.time}</span>
+        </div>
+        <div style="font-size: 0.72rem; color: rgba(255,255,255,0.4); padding: 0 0 8px 0; line-height: 1.4;">
+          ${r.desc}
+        </div>
+      `).join('')}
+      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-top: 4px; font-style: italic;">
+        🔙 Về: 北陸道 → 関越道 (tất cả plans, an toàn lái đêm)
       </div>
     </div>
   `;
