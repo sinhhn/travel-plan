@@ -7,7 +7,7 @@ const DAY_DESCRIPTIONS = {
   A: [
     'Xuất phát 6h sáng từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in HOTEL R9 The Yard Kurobe.',
     'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Chiều trolley hẻm núi Kurobe. Ngày rất dài và đáng nhớ!',
-    'Buổi sáng tản bộ, mua quà. Rời Kurobe sớm về Tokyo tránh tắc GW.',
+    'Rời Kurobe sớm 8h sáng, về Tokyo trước tắc chiều GW. Trolley đã đi hôm qua!',
   ],
   B: [
     'Xuất phát 6h sáng. Làng gassho 白川郷 nổi tiếng nhất thế giới. Chiều tản bộ Kansui Park ngắm hoàng hôn. Check-in HOTEL R9 Kurobe.',
