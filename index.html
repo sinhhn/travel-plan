@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kế hoạch chuyến đi gia đình Kurobe-Toyama Golden Week 2026">
+  <title>黒部富山 Family Trip — GW 2026</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <span class="nav__logo">🏔️ 黒部富山 2026</span>
+    <div class="nav__pills" id="nav-pills">
+      <!-- Rendered by JS -->
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <span class="hero__badge">GW 2026</span>
+      <h1 class="hero__title">黒部・富山<br><em>gia đình hành trình</em></h1>
+      <p class="hero__subtitle">3 gia đình · 10 người · 3/5 — 5/5/2026</p>
+      <div class="hero__divider"></div>
+      <p class="hero__info">Chuyến phiêu lưu gia đình đến vùng núi Toyama</p>
+      <div class="countdown" id="countdown">
+        <!-- Rendered by countdown.js -->
+      </div>
+      <a href="#plan-selector" class="hero__scroll">
+        <span>Chọn hành trình của bạn</span>
+        <span class="hero__scroll-arrow">↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== WARNING BANNER ===== -->
+  <section class="warning-banner" role="alert">
+    <div class="container">
+      <span class="warning-banner__icon">⚠️</span>
+      <div class="warning-banner__content">
+        <div class="warning-banner__title">GOLDEN WEEK ALERT</div>
+        <p>Xuất phát TRƯỚC 5:00 AM ngày 3/5</p>
+        <p>Rời Toyama TRƯỚC 9:00 AM ngày 5/5</p>
+        <p>Tắc đường có thể gấp 2-3 lần thường ngày</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLAN SELECTOR ===== -->
+  <section class="plan-selector" id="plan-selector">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-header__label">Chọn hành trình</p>
+        <h2 class="section-header__title">3 Plans cho chuyến đi</h2>
+      </div>
+      <div class="plan-cards" id="plan-cards">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLAN DETAIL ===== -->
+  <section class="plan-detail" id="plan-detail">
+    <div class="container">
+      <div class="plan-detail__content" id="plan-detail-content">
+        <!-- Rendered by JS: day tabs + timeline + cost + weather -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPARISON ===== -->
+  <section class="comparison" id="comparison">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-header__label">So sánh</p>
+        <h2 class="section-header__title">Đối chiếu 3 Plans</h2>
+      </div>
+      <div class="comparison__table-wrapper">
+        <table class="comparison-table" id="comparison-table">
+          <!-- Rendered by JS -->
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ESSENTIALS ===== -->
+  <section class="essentials" id="essentials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-header__label">Chuẩn bị</p>
+        <h2 class="section-header__title">Thông tin cần thiết</h2>
+      </div>
+      <div class="essentials-tabs" id="essentials-tabs">
+        <!-- Rendered by JS -->
+      </div>
+      <div id="essentials-panels">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ===== JS ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/checklist.js"></script>
+  <script src="js/ui.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* ===== SCROLL REVEAL ===== */
+.stop-card {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stop-card.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== PLAN SWITCH TRANSITION ===== */
+.plan-detail__content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.plan-detail__content.fading {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ===== ARROW BOUNCE ===== */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.hero__scroll-arrow {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* ===== COUNTDOWN FLIP ===== */
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.countdown__number.pulse {
+  animation: countPulse 0.3s ease;
+}
+
+/* ===== FADE IN UP ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ===== PLAN CARD SELECTED PULSE ===== */
+@keyframes selectPulse {
+  0% { box-shadow: 0 0 0 0 rgba(46,74,107,0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(46,74,107,0); }
+  100% { box-shadow: 0 0 0 0 rgba(46,74,107,0); }
+}
+
+.plan-card.just-selected {
+  animation: selectPulse 0.5s ease;
+}
+
+/* ===== HERO CONTENT STAGGER ===== */
+.hero__badge { animation: fadeInUp 0.6s ease 0.2s both; }
+.hero__title { animation: fadeInUp 0.6s ease 0.4s both; }
+.hero__subtitle { animation: fadeInUp 0.6s ease 0.6s both; }
+.hero__divider { animation: fadeInUp 0.6s ease 0.7s both; }
+.hero__info { animation: fadeInUp 0.6s ease 0.8s both; }
+.countdown { animation: fadeInUp 0.6s ease 1.0s both; }
+.hero__scroll { animation: fadeInUp 0.6s ease 1.2s both; }
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .stop-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__scroll-arrow {
+    animation: none;
+  }
+}
+
+/* ===== FOCUS VISIBLE ===== */
+*:focus-visible {
+  outline: 2px solid var(--mountain-light);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+.plan-card:focus-visible,
+.day-tab:focus-visible,
+.essentials-tab:focus-visible {
+  outline: 2px solid var(--mountain-light);
+  outline-offset: 2px;
+}
