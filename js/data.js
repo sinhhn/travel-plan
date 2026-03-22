@@ -26,6 +26,11 @@ const PLANS = {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: '向島 → 五箇山 → HOTEL R9',
+        specialties: [
+          { emoji: '🧈', name: '五箇山豆腐', where: '五箇山', desc: 'Đậu hũ cứng nướng than, đậm đà — đặc sản UNESCO village' },
+          { emoji: '🐟', name: '岩魚塩焼き', where: '五箇山', desc: 'Cá suối nướng muối thơm giòn, trẻ em thích' },
+          { emoji: '🍜', name: '富山ブラックラーメン', where: 'Kurobe', desc: 'Ramen đen xì dầu đậm đặc — ăn tối tại Kurobe' },
+        ],
         segments: [
           { from: '向島', to: '五箇山', km: 380, time: '5h30', mode: 'car' },
           { from: '五箇山', to: 'HOTEL R9', km: 110, time: '1h30', mode: 'car' },
@@ -73,6 +78,10 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: '立山黒部 Alpine Route',
+        specialties: [
+          { emoji: '🍛', name: 'Kurobe Dam Curry', where: '黒部ダム', desc: 'Cà ri hình đập nước — món signature tại đập' },
+          { emoji: '🍙', name: 'Bento trên núi', where: '室堂', desc: 'Mang bento ăn giữa tường tuyết — trải nghiệm độc đáo' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: '立山駅', km: 35, time: '45min', mode: 'car' },
           { from: '立山駅', to: '室堂', km: 23, time: '1h30', mode: 'alpine' },
@@ -134,6 +143,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: 'トロッコ → 宇奈月 → Nghỉ → Về Tokyo tối',
+        specialties: [
+          { emoji: '🍦', name: 'Kem onsen', where: '宇奈月', desc: 'Kem mềm mịn bán dọc phố onsen — trẻ em mê' },
+          { emoji: '🍡', name: '温泉たまご', where: '宇奈月', desc: 'Trứng luộc suối nóng, vỏ mềm lòng đào — ăn kèm muối' },
+          { emoji: '🍣', name: 'ます寿し bento', where: 'SA đường về', desc: 'Sushi cá hồi ép truyền thống Toyama — mua mang đi ăn trên xe' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: '宇奈月駅 (トロッコ)', km: 20, time: '25min', mode: 'car' },
           { from: 'トロッコ往復', to: 'Kanetsuri', km: 20, time: '1h30', mode: 'trolley' },
@@ -216,6 +230,11 @@ const PLANS = {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: '向島 → 魚津水族館 → HOTEL R9',
+        specialties: [
+          { emoji: '🦐', name: '白エビ天丼', where: '魚津', desc: 'Tôm trắng Toyama — đặc sản #1, giòn ngọt tự nhiên' },
+          { emoji: '🦑', name: 'ほたるいか (Hotaruika)', where: '魚津', desc: 'Mực phát sáng Toyama Bay — sashimi hoặc tempura' },
+          { emoji: '🍜', name: '富山ブラックラーメン', where: 'Kurobe', desc: 'Ramen đen xì dầu đậm đặc — ăn tối tại Kurobe' },
+        ],
         segments: [
           { from: '向島', to: 'Kurobe area', km: 400, time: '5h30', mode: 'car' },
           { from: 'Kurobe', to: '魚津水族館', km: 20, time: '25min', mode: 'car' },
@@ -264,6 +283,11 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: 'トロッコ → 宇奈月温泉 → ヒスイ海岸',
+        specialties: [
+          { emoji: '🍦', name: 'Kem onsen', where: '宇奈月', desc: 'Kem mềm mịn bán dọc phố onsen' },
+          { emoji: '🍡', name: '温泉たまご', where: '宇奈月', desc: 'Trứng luộc suối nóng, lòng đào mềm' },
+          { emoji: '🍘', name: 'Bánh senbei nướng', where: '宇奈月', desc: 'Trẻ em tự nướng tại quầy ven phố' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: 'トロッコ乗場', km: 20, time: '25min', mode: 'car' },
           { from: 'トロッコ往復', to: 'Kanetsuri', km: 20, time: '2h', mode: 'trolley' },
@@ -325,6 +349,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: 'TAD + 環水公園 → Nghỉ → Về Tokyo tối',
+        specialties: [
+          { emoji: '🦐', name: '白エビバーガー', where: '環水公園', desc: 'Burger tôm trắng Toyama — bán tại quầy trong công viên' },
+          { emoji: '☕', name: 'Starbucks 環水公園', where: '環水公園', desc: 'Chi nhánh đẹp nhất Nhật Bản — view kênh + Tateyama' },
+          { emoji: '🍣', name: 'ます寿し', where: 'SA đường về', desc: 'Sushi cá hồi ép Toyama — bento hoàn hảo mang đi' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: 'TAD / 環水公園', km: 60, time: '50min', mode: 'car' },
           { from: 'TAD', to: 'HOTEL R9', km: 60, time: '50min', mode: 'car' },
@@ -394,6 +423,11 @@ const PLANS = {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: '向島 → 松本城 → HOTEL R9',
+        specialties: [
+          { emoji: '🍜', name: '信州そば (Soba)', where: '松本', desc: 'Mì kiều mạch Nagano — ăn lạnh chấm nước tương, thơm nức' },
+          { emoji: '🍎', name: 'リンゴソフト (Kem táo)', where: '松本', desc: 'Kem táo Shinshu — ngọt tự nhiên, bán quanh lâu đài' },
+          { emoji: '🍶', name: 'Sake Nagano', where: 'SA trên đường', desc: 'Sake vùng Shinshu nổi tiếng — mua omiyage tại SA' },
+        ],
         segments: [
           { from: '向島', to: '松本城', km: 230, time: '3h', mode: 'car' },
           { from: '松本城', to: 'HOTEL R9 (via 大町/Hakuba)', km: 150, time: '2h30', mode: 'car' },
@@ -453,6 +487,11 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: 'Alpine Route (室堂) → トロッコ',
+        specialties: [
+          { emoji: '🍛', name: 'Kurobe Dam Curry', where: '室堂 area', desc: 'Cà ri hình đập — có bán tại quán trên Alpine Route' },
+          { emoji: '🍙', name: 'おにぎり on the go', where: '室堂', desc: 'Onigiri mang lên núi — ăn giữa tường tuyết' },
+          { emoji: '🍡', name: '温泉たまご', where: '宇奈月', desc: 'Trứng luộc suối nóng sau khi xuống trolley' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: '立山駅', km: 35, time: '45min', mode: 'car' },
           { from: '立山駅', to: '室堂', km: 23, time: '1h30', mode: 'alpine' },
@@ -516,6 +555,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: '魚津 + ヒスイ海岸 → Nghỉ → Về Tokyo tối',
+        specialties: [
+          { emoji: '🦐', name: '白エビ天丼', where: '魚津', desc: 'Tôm trắng Toyama chiên giòn — ăn trưa tại quán ven biển' },
+          { emoji: '🦑', name: 'ほたるいか', where: '魚津', desc: 'Mực phát sáng — sashimi hoặc tempura, đặc sản Toyama Bay' },
+          { emoji: '🍣', name: 'ます寿し', where: 'SA đường về', desc: 'Sushi cá hồi ép truyền thống — bento hoàn hảo trên xe' },
+        ],
         segments: [
           { from: 'HOTEL R9', to: '魚津水族館', km: 20, time: '25min', mode: 'car' },
           { from: '魚津', to: 'ヒスイ海岸', km: 30, time: '35min', mode: 'car' },

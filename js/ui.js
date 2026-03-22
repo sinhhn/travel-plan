@@ -170,6 +170,7 @@ function renderPlanDetail(planId) {
         </div>
 
         <div class="plan-viewer__extras">
+          ${renderSpecialties(planId, currentDay)}
           ${renderDistances(planId, currentDay)}
           ${renderRouteOptions(planId)}
           ${renderWeatherWidget()}
@@ -261,6 +262,28 @@ function renderItinerary(stops, color) {
       }).join('')}
     </div>
   `).join('');
+}
+
+// ===== SPECIALTIES =====
+function renderSpecialties(planId, dayIndex) {
+  const plan = PLANS[planId];
+  const day = plan.days[dayIndex];
+  if (!day.specialties || day.specialties.length === 0) return '';
+
+  return `
+    <div class="cost-breakdown" style="margin-bottom: var(--space-md)">
+      <div class="cost-breakdown__title">🍽️ Đặc sản nên thử — ${day.title.split('—')[0].trim()}</div>
+      ${day.specialties.map(s => `
+        <div class="cost-breakdown__row" style="align-items: flex-start;">
+          <span>${s.emoji} <strong>${s.name}</strong></span>
+          <span class="font-mono" style="font-size: 0.7rem; opacity: 0.6;">📍 ${s.where}</span>
+        </div>
+        <div style="font-size: 0.72rem; color: rgba(255,255,255,0.45); padding: 0 0 6px 0; line-height: 1.5;">
+          ${s.desc}
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 // ===== DISTANCES =====
