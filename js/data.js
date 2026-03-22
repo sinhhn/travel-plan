@@ -16,20 +16,20 @@ const PLANS = {
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 五箇山 → Kurobe',
         segments: [
-          { from: 'Tokyo', to: '五箇山', km: 430, time: '5h30', mode: 'car' },
+          { from: '向島', to: '五箇山', km: 430, time: '5h30', mode: 'car' },
           { from: '五箇山', to: 'HOTEL R9', km: 110, time: '1h30', mode: 'car' },
         ],
         stops: [
           {
             id: 'a-d1-depart',
-            name: 'Xuất phát Tokyo',
-            lat: 35.6762, lng: 139.6503,
+            name: 'Tập kết nhà anh Hà (向島)',
+            lat: 35.7180, lng: 139.8130,
             arrivalTime: '06:00',
             duration: 0,
             type: 'minor',
-            description: 'Xuất phát sớm để tránh tắc đường Golden Week.',
+            description: '3 xe tập kết tại 墨田区向島5-35-11. Đổ xăng tại trạm trên Meiji-dori rồi lên 向島入口 → 首都高6号.',
             food: null,
-            tips: 'Chuẩn bị đồ ăn sáng trên xe',
+            tips: '2 nhà đến trước 5:50. Cùng xuất phát 6:00. Chuẩn bị đồ ăn sáng trên xe.',
             weather: '18-24°C · 🌤️ Tokyo ấm',
           },
           {
@@ -140,7 +140,7 @@ const PLANS = {
         segments: [
           { from: 'HOTEL R9', to: '環水公園', km: 60, time: '50min', mode: 'car' },
           { from: '環水公園', to: 'HOTEL R9', km: 60, time: '50min', mode: 'car' },
-          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -200,21 +200,21 @@ const PLANS = {
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 白川郷 → Kurobe',
         segments: [
-          { from: 'Tokyo', to: '白川郷', km: 460, time: '5h30', mode: 'car' },
+          { from: '向島', to: '白川郷', km: 460, time: '5h30', mode: 'car' },
           { from: '白川郷', to: '環水公園', km: 80, time: '1h15', mode: 'car' },
           { from: '環水公園', to: 'HOTEL R9', km: 65, time: '1h', mode: 'car' },
         ],
         stops: [
           {
             id: 'b-d1-depart',
-            name: 'Xuất phát Tokyo',
-            lat: 35.6762, lng: 139.6503,
+            name: 'Tập kết nhà anh Hà (向島)',
+            lat: 35.7180, lng: 139.8130,
             arrivalTime: '06:00',
             duration: 0,
             type: 'minor',
-            description: 'Xuất phát sớm tránh tắc đường GW.',
+            description: '3 xe tập kết tại 墨田区向島5-35-11. Đổ xăng tại trạm trên Meiji-dori rồi lên 向島入口 → 首都高6号.',
             food: null,
-            tips: 'Chuẩn bị đồ ăn nhẹ cho trẻ trên xe',
+            tips: '2 nhà đến trước 5:50. Cùng xuất phát 6:00. Chuẩn bị đồ ăn nhẹ cho trẻ trên xe.',
             weather: '18-24°C · 🌤️ Tokyo ấm',
           },
           {
@@ -323,7 +323,7 @@ const PLANS = {
         segments: [
           { from: 'HOTEL R9', to: 'TAD 美術館', km: 60, time: '50min', mode: 'car' },
           { from: 'TAD', to: 'HOTEL R9', km: 60, time: '50min', mode: 'car' },
-          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -383,7 +383,7 @@ const PLANS = {
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 松本城 → 黒部ダム → Kurobe',
         segments: [
-          { from: 'Tokyo', to: '松本城', km: 230, time: '3h', mode: 'car' },
+          { from: '向島', to: '松本城', km: 230, time: '3h', mode: 'car' },
           { from: '松本城', to: '扇沢駅', km: 60, time: '1h15', mode: 'car' },
           { from: '扇沢', to: '黒部ダム', km: 6, time: '20min', mode: 'bus' },
           { from: '黒部ダム → 扇沢 → HOTEL R9', to: '', km: 130, time: '2h', mode: 'car' },
@@ -391,14 +391,14 @@ const PLANS = {
         stops: [
           {
             id: 'c-d1-depart',
-            name: 'Xuất phát Tokyo',
-            lat: 35.6762, lng: 139.6503,
+            name: 'Tập kết nhà anh Hà (向島)',
+            lat: 35.7180, lng: 139.8130,
             arrivalTime: '06:00',
             duration: 0,
             type: 'minor',
-            description: 'Đi hướng Nagano thay vì Toyama — tránh tắc hiệu quả hơn.',
+            description: '3 xe tập kết tại 墨田区向島5-35-11. Đổ xăng rồi lên 首都高 → 中央道 hướng Matsumoto.',
             food: null,
-            tips: 'Chạy Chuo Expressway → Matsumoto',
+            tips: '2 nhà đến trước 5:50. Cùng xuất phát 6:00. Plan C đi 中央道 (khác Plan A/B).',
             weather: '18-24°C · 🌤️ Tokyo ấm',
           },
           {
@@ -521,7 +521,7 @@ const PLANS = {
         segments: [
           { from: 'HOTEL R9', to: '五箇山', km: 100, time: '1h30', mode: 'car' },
           { from: '五箇山', to: 'HOTEL R9', km: 100, time: '1h30', mode: 'car' },
-          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
         ],
         stops: [
           {
