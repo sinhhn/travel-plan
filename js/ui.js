@@ -168,7 +168,7 @@ function renderPlanDetail(planId) {
         </div>
 
         <div class="plan-viewer__extras">
-          ${renderCostBreakdown(planId)}
+          ${renderDistances(planId, currentDay)}
           ${renderWeatherWidget()}
         </div>
       </div>
@@ -252,24 +252,31 @@ function renderItinerary(stops, color) {
   `).join('');
 }
 
-// ===== COST BREAKDOWN =====
-function renderCostBreakdown(planId) {
+// ===== DISTANCES =====
+function getModeIcon(mode) {
+  const icons = { car: '🚗', alpine: '🚡', trolley: '🚂', bus: '🚌', walk: '🚶' };
+  return icons[mode] || '🚗';
+}
+
+function renderDistances(planId, dayIndex) {
   const plan = PLANS[planId];
+  const day = plan.days[dayIndex];
+  if (!day.segments || day.segments.length === 0) return '';
+
+  const totalKm = day.segments.reduce((sum, s) => sum + s.km, 0);
+
   return `
     <div class="cost-breakdown">
-      <div class="cost-breakdown__title">💰 Chi phí ước tính (10 người)</div>
-      ${plan.cost.items.map(item => `
+      <div class="cost-breakdown__title">📏 Khoảng cách di chuyển — ${day.title.split('—')[0].trim()}</div>
+      ${day.segments.map(seg => `
         <div class="cost-breakdown__row">
-          <span>${item.label}</span>
-          <span class="font-mono">${item.amount}</span>
+          <span>${getModeIcon(seg.mode)} ${seg.from}${seg.to ? ' → ' + seg.to : ''}</span>
+          <span class="font-mono">${seg.km}km · ${seg.time}</span>
         </div>
       `).join('')}
       <div class="cost-breakdown__total">
-        <span>TỔNG</span>
-        <span>${plan.cost.total}</span>
-      </div>
-      <div class="cost-breakdown__per-person">
-        Mỗi người: ${plan.cost.perPerson}
+        <span>TỔNG NGÀY</span>
+        <span>${totalKm}km</span>
       </div>
     </div>
   `;

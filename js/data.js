@@ -8,23 +8,17 @@ const PLANS = {
     highlights: [
       { icon: '🏔️', text: 'Tường tuyết 15m tại Murodo' },
       { icon: '👨‍👩‍👧', text: 'Phù hợp bé 4+ tuổi' },
-      { icon: '💰', text: 'Chi phí: ~¥205,000 (10 người)' },
+      { icon: '🚗', text: 'Tổng ~1,080km (3 ngày)' },
     ],
-    cost: {
-      items: [
-        { label: 'Alpine Route (vé)', amount: '¥55,000' },
-        { label: 'Xăng/cao tốc', amount: '¥30,000' },
-        { label: 'HOTEL R9 The Yard Kurobe (2 đêm)', amount: '¥80,000' },
-        { label: 'Ăn uống', amount: '¥40,000' },
-      ],
-      total: '~¥205,000',
-      perPerson: '~¥20,500',
-    },
     days: [
       {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 五箇山 → Kurobe',
+        segments: [
+          { from: 'Tokyo', to: '五箇山', km: 430, time: '5h30', mode: 'car' },
+          { from: '五箇山', to: 'HOTEL R9', km: 110, time: '1h30', mode: 'car' },
+        ],
         stops: [
           {
             id: 'a-d1-depart',
@@ -68,6 +62,14 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: '立山黒部 Alpine Route → トロッコ',
+        segments: [
+          { from: 'HOTEL R9', to: '立山駅', km: 35, time: '45min', mode: 'car' },
+          { from: '立山駅', to: '室堂', km: 23, time: '1h30', mode: 'alpine' },
+          { from: '室堂', to: '黒部ダム', km: 10, time: '1h', mode: 'alpine' },
+          { from: '黒部ダム', to: 'トロッコ乗場', km: 80, time: '1h30', mode: 'car' },
+          { from: 'トロッコ (往復)', to: 'Kanetsuri', km: 20, time: '1h30', mode: 'trolley' },
+          { from: 'トロッコ乗場', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
+        ],
         stops: [
           {
             id: 'tateyama-sta',
@@ -135,6 +137,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: 'Nghỉ ngơi → Về Tokyo tối',
+        segments: [
+          { from: 'HOTEL R9', to: '環水公園', km: 60, time: '50min', mode: 'car' },
+          { from: '環水公園', to: 'HOTEL R9', km: 60, time: '50min', mode: 'car' },
+          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+        ],
         stops: [
           {
             id: 'a-d3-kansui',
@@ -185,23 +192,18 @@ const PLANS = {
     highlights: [
       { icon: '♨️', text: 'Onsen & tản bộ nhẹ nhàng' },
       { icon: '👶', text: 'Phù hợp mọi lứa tuổi, cả bé nhỏ' },
-      { icon: '💰', text: 'Chi phí: ~¥150,000 (10 người)' },
+      { icon: '🚗', text: 'Tổng ~1,060km (3 ngày)' },
     ],
-    cost: {
-      items: [
-        { label: 'Trolley + vé tham quan', amount: '¥25,000' },
-        { label: 'Xăng/cao tốc', amount: '¥25,000' },
-        { label: 'HOTEL R9 The Yard Kurobe (2 đêm)', amount: '¥60,000' },
-        { label: 'Ăn uống', amount: '¥40,000' },
-      ],
-      total: '~¥150,000',
-      perPerson: '~¥15,000',
-    },
     days: [
       {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 白川郷 → Kurobe',
+        segments: [
+          { from: 'Tokyo', to: '白川郷', km: 460, time: '5h30', mode: 'car' },
+          { from: '白川郷', to: '環水公園', km: 80, time: '1h15', mode: 'car' },
+          { from: '環水公園', to: 'HOTEL R9', km: 65, time: '1h', mode: 'car' },
+        ],
         stops: [
           {
             id: 'b-d1-depart',
@@ -257,6 +259,12 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: '魚津 → 宇奈月 → トロッコ',
+        segments: [
+          { from: 'HOTEL R9', to: '魚津水族館', km: 20, time: '25min', mode: 'car' },
+          { from: '魚津', to: 'トロッコ乗場', km: 30, time: '40min', mode: 'car' },
+          { from: 'トロッコ (往復)', to: 'Kanetsuri', km: 20, time: '2h', mode: 'trolley' },
+          { from: '宇奈月', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
+        ],
         stops: [
           {
             id: 'uozu-aqua',
@@ -312,6 +320,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: 'Nghỉ ngơi → Về Tokyo tối',
+        segments: [
+          { from: 'HOTEL R9', to: 'TAD 美術館', km: 60, time: '50min', mode: 'car' },
+          { from: 'TAD', to: 'HOTEL R9', km: 60, time: '50min', mode: 'car' },
+          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+        ],
         stops: [
           {
             id: 'toyama-tad',
@@ -362,23 +375,19 @@ const PLANS = {
     highlights: [
       { icon: '🏯', text: 'Thêm Matsumoto Castle' },
       { icon: '🧠', text: 'Route thông minh tránh đông GW' },
-      { icon: '💰', text: 'Chi phí: ~¥180,000 (10 người)' },
+      { icon: '🚗', text: 'Tổng ~1,120km (3 ngày)' },
     ],
-    cost: {
-      items: [
-        { label: 'Alpine Route (vé)', amount: '¥55,000' },
-        { label: 'Xăng/cao tốc', amount: '¥35,000' },
-        { label: 'HOTEL R9 The Yard Kurobe (2 đêm)', amount: '¥60,000' },
-        { label: 'Ăn uống', amount: '¥30,000' },
-      ],
-      total: '~¥180,000',
-      perPerson: '~¥18,000',
-    },
     days: [
       {
         dayNum: 1,
         title: 'Day 1 — Chủ Nhật 3/5',
         subtitle: 'Tokyo → 松本城 → 黒部ダム → Kurobe',
+        segments: [
+          { from: 'Tokyo', to: '松本城', km: 230, time: '3h', mode: 'car' },
+          { from: '松本城', to: '扇沢駅', km: 60, time: '1h15', mode: 'car' },
+          { from: '扇沢', to: '黒部ダム', km: 6, time: '20min', mode: 'bus' },
+          { from: '黒部ダム → 扇沢 → HOTEL R9', to: '', km: 130, time: '2h', mode: 'car' },
+        ],
         stops: [
           {
             id: 'c-d1-depart',
@@ -446,6 +455,14 @@ const PLANS = {
         dayNum: 2,
         title: 'Day 2 — Thứ Hai 4/5',
         subtitle: '立山 → 室堂 → トロッコ',
+        segments: [
+          { from: 'HOTEL R9', to: '立山駅', km: 35, time: '45min', mode: 'car' },
+          { from: '立山駅', to: '室堂', km: 23, time: '1h30', mode: 'alpine' },
+          { from: '室堂', to: '立山駅 (復路)', km: 23, time: '1h30', mode: 'alpine' },
+          { from: '立山駅', to: 'トロッコ乗場', km: 55, time: '1h', mode: 'car' },
+          { from: 'トロッコ (往復)', to: 'Kanetsuri', km: 20, time: '2h', mode: 'trolley' },
+          { from: 'トロッコ乗場', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
+        ],
         stops: [
           {
             id: 'tateyama-sta-c',
@@ -501,6 +518,11 @@ const PLANS = {
         dayNum: 3,
         title: 'Day 3 — Thứ Ba 5/5',
         subtitle: '五箇山 → Nghỉ ngơi → Về Tokyo tối',
+        segments: [
+          { from: 'HOTEL R9', to: '五箇山', km: 100, time: '1h30', mode: 'car' },
+          { from: '五箇山', to: 'HOTEL R9', km: 100, time: '1h30', mode: 'car' },
+          { from: 'HOTEL R9', to: 'Tokyo', km: 430, time: '5h', mode: 'car' },
+        ],
         stops: [
           {
             id: 'gokayama-c',
@@ -551,7 +573,7 @@ const COMPARISON = [
   { label: 'Độ vất vả', A: { text: '🔥🔥🔥', type: 'neutral' }, B: { text: '🔥', type: 'neutral' }, C: { text: '🔥🔥🔥', type: 'neutral' } },
   { label: 'Bé < 4 tuổi', A: { text: '⚠️ Khó', type: 'warn' }, B: { text: 'Tốt', type: 'yes' }, C: { text: '⚠️ Khó', type: 'warn' } },
   { label: 'Tránh đông', A: { text: '⭐⭐', type: 'neutral' }, B: { text: '⭐⭐', type: 'neutral' }, C: { text: '⭐⭐⭐', type: 'neutral' } },
-  { label: 'Chi phí / người', A: { text: '~¥20,500', type: 'neutral' }, B: { text: '~¥15,000', type: 'neutral' }, C: { text: '~¥18,000', type: 'neutral' } },
+  { label: 'Tổng km', A: { text: '~1,080km', type: 'neutral' }, B: { text: '~1,060km', type: 'neutral' }, C: { text: '~1,120km', type: 'neutral' } },
   { label: 'Điểm nổi bật', A: { text: 'Alpine Route', type: 'neutral' }, B: { text: 'Onsen & relax', type: 'neutral' }, C: { text: 'Matsumoto Castle', type: 'neutral' } },
 ];
 
