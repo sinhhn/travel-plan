@@ -2,9 +2,27 @@
 let currentPlan = 'A';
 let currentDay = 0;
 
+// ===== DAY DESCRIPTIONS =====
+const DAY_DESCRIPTIONS = {
+  A: [
+    'Xuất phát sớm từ Tokyo, khám phá làng gassho UNESCO tại 五箇山 — yên tĩnh hơn 白川郷. Chiều check-in Toyama, tản bộ Kansui Park ngắm hoàng hôn.',
+    'Ngày đỉnh cao — Tateyama-Kurobe Alpine Route. Tường tuyết 15m tại Murodo, đập Kurobe hùng vĩ. Tối onsen tại Unazuki.',
+    'Tàu trolley Kurobe buổi sáng ngắm hẻm núi tuyệt đẹp. Trưa rời Toyama về Tokyo trước giờ tắc.',
+  ],
+  B: [
+    'Làng gassho 白川郷 nổi tiếng nhất thế giới. Đông hơn 五箇山 nhưng hoành tráng hơn, đẹp cho ảnh gia đình. Chiều tản bộ Kansui Park.',
+    'Thủy cung Uozu cho các bé buổi sáng. Chiều trolley qua hẻm núi Kurobe. Tối onsen tại Unazuki YAMANOHA.',
+    'Bảo tàng TAD — rooftop playground miễn phí cho trẻ em. Rời sớm về Tokyo tránh tắc GW.',
+  ],
+  C: [
+    'Đi hướng Nagano tránh tắc GW. Matsumoto Castle sáng sớm, chiều vào Kurobe Dam từ phía Ogizawa — ít người hơn hẳn.',
+    'Alpine Route từ Tateyama. Tường tuyết Murodo buổi sáng — đỉnh cao chuyến đi. Chiều về Unazuki nghỉ onsen.',
+    'Trolley hẻm núi sáng sớm, ghé nhanh 五箇山 trên đường về Tokyo. Route khác nên ít tắc hơn.',
+  ],
+};
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
-  // Read URL param
   const urlParams = new URLSearchParams(window.location.search);
   const planParam = urlParams.get('plan');
   if (planParam && PLANS[planParam.toUpperCase()]) {
@@ -17,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderComparison();
   renderEssentials();
   initNavScroll();
-  initScrollReveal();
 });
 
 // ===== NAV =====
@@ -83,69 +100,77 @@ function selectPlan(planId) {
   currentPlan = planId;
   currentDay = 0;
 
-  // Update URL
   const url = new URL(window.location);
   url.searchParams.set('plan', planId);
   history.replaceState(null, '', url);
 
-  // Update cards
   renderPlanCards();
   renderNavPills();
+  renderPlanDetail(planId);
 
-  // Fade transition for detail
-  const detail = document.getElementById('plan-detail-content');
-  detail.classList.add('fading');
-
-  setTimeout(() => {
-    renderPlanDetail(planId);
-    detail.classList.remove('fading');
-    initScrollReveal();
-  }, 300);
-
-  // Scroll to detail
   document.getElementById('plan-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// ===== PLAN DETAIL =====
+// ===== PLAN DETAIL (Map + Panel split view) =====
 function renderPlanDetail(planId) {
   const plan = PLANS[planId];
+  const day = plan.days[currentDay];
   const container = document.getElementById('plan-detail-content');
+  const mapUrl = getMapEmbedUrl(day.stops);
+  const routeUrl = getRouteUrl(day.stops);
+  const desc = DAY_DESCRIPTIONS[planId]?.[currentDay] || '';
 
   container.innerHTML = `
-    <div class="section-header">
-      <p class="section-header__label">Plan ${planId}</p>
-      <h2 class="section-header__title">${plan.name}</h2>
-      <p class="text-secondary" style="margin-top: var(--space-sm); font-style: italic;">${plan.subtitle}</p>
+    <div class="container" style="margin-bottom: var(--space-xl)">
+      <div class="section-header">
+        <p class="section-header__label">Plan ${planId}</p>
+        <h2 class="section-header__title">${plan.name}</h2>
+        <p class="text-secondary" style="margin-top: var(--space-sm); font-style: italic;">${plan.subtitle}</p>
+      </div>
     </div>
 
-    <!-- Day Tabs -->
-    <div class="day-tabs" id="day-tabs" style="--plan-color: ${plan.color}">
-      ${plan.days.map((day, i) => `
-        <button class="day-tab ${i === currentDay ? 'active' : ''}"
-                onclick="switchDay(${i})"
-                style="--plan-color: ${plan.color}">
-          ${day.title}
-        </button>
-      `).join('')}
-    </div>
-
-    <!-- Layout: Timeline + Sidebar -->
-    <div class="plan-detail__layout">
-      <div class="plan-detail__timeline-wrapper">
-        <p class="font-mono text-secondary" style="margin-bottom: var(--space-lg);">
-          ${plan.days[currentDay].subtitle}
-        </p>
-        <div class="timeline" id="timeline" style="--plan-color: ${plan.color}">
-          <div class="timeline__line"></div>
-          ${renderTimeline(plan.days[currentDay].stops, plan.color)}
+    <div class="plan-viewer" style="--plan-color: ${plan.color}">
+      <!-- Map -->
+      <div class="plan-viewer__map">
+        <div class="plan-viewer__day-tabs">
+          ${plan.days.map((d, i) => `
+            <button class="plan-viewer__day-tab ${i === currentDay ? 'active' : ''}"
+                    onclick="switchDay(${i})">
+              Day ${d.dayNum}
+            </button>
+          `).join('')}
         </div>
+        <iframe class="plan-viewer__iframe"
+                src="${mapUrl}"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Route map for ${day.title}"></iframe>
       </div>
 
-      <!-- Sidebar: Cost + Weather -->
-      <div>
-        ${renderCostBreakdown(planId)}
-        ${renderWeatherWidget()}
-        ${renderShareButton(planId)}
+      <!-- Itinerary Panel -->
+      <div class="plan-viewer__panel">
+        <div class="plan-viewer__header">
+          <h2>${day.title} — ${day.subtitle}</h2>
+          <p>${desc}</p>
+          <div class="plan-viewer__actions">
+            <a href="${routeUrl}" target="_blank" rel="noopener" class="plan-viewer__btn">
+              📍 Open route
+            </a>
+            <button class="plan-viewer__btn" onclick="copyRoute('${planId}')">
+              📋 Copy
+            </button>
+          </div>
+        </div>
+
+        <div class="plan-viewer__itinerary">
+          ${renderItinerary(day.stops, plan.color)}
+        </div>
+
+        <div class="plan-viewer__extras">
+          ${renderCostBreakdown(planId)}
+          ${renderWeatherWidget()}
+        </div>
       </div>
     </div>
   `;
@@ -155,35 +180,76 @@ function renderPlanDetail(planId) {
 function switchDay(dayIndex) {
   currentDay = dayIndex;
   renderPlanDetail(currentPlan);
-  initScrollReveal();
 }
 
-// ===== TIMELINE =====
-function renderTimeline(stops, color) {
-  return stops.map(stop => {
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${stop.lat},${stop.lng}`;
-    return `
-      <div class="stop-card" id="stop-${stop.id}">
-        <div class="stop-card__dot ${stop.type}" style="background: ${color}; ${stop.type === 'major' ? `box-shadow: 0 0 0 4px ${color}33;` : ''}"></div>
-        <div class="stop-card__header">
-          <span>${stop.arrivalTime}</span>
-          ${stop.duration ? `<span>🕐 ${stop.duration >= 60 ? Math.floor(stop.duration / 60) + 'h' + (stop.duration % 60 ? stop.duration % 60 + 'ph' : '') : stop.duration + 'ph'}</span>` : ''}
-        </div>
-        <h3 class="stop-card__name">${stop.name}</h3>
-        ${stop.description ? `<p class="stop-card__description">${stop.description}</p>` : ''}
-        <div class="stop-card__meta">
-          ${stop.food ? `<span class="stop-card__meta-item">🍜 ${stop.food}</span>` : ''}
-          ${stop.weather ? `<span class="stop-card__meta-item">🌡️ ${stop.weather}</span>` : ''}
-          ${stop.tips ? `<span class="stop-card__meta-item">💡 ${stop.tips}</span>` : ''}
-        </div>
-        <div class="stop-card__actions">
-          <a href="${mapsUrl}" target="_blank" rel="noopener" class="stop-card__link">
-            📍 Mở trong Google Maps
+// ===== MAP HELPERS =====
+function getMapEmbedUrl(stops) {
+  const points = stops.filter(s => s.lat && s.lng);
+  if (points.length === 0) return '';
+  if (points.length === 1) {
+    return `https://maps.google.com/maps?q=${points[0].lat},${points[0].lng}&z=10&output=embed`;
+  }
+  const origin = `${points[0].lat},${points[0].lng}`;
+  const waypoints = points.slice(1).map(s => `${s.lat},${s.lng}`).join('+to:');
+  return `https://maps.google.com/maps?saddr=${origin}&daddr=${waypoints}&output=embed`;
+}
+
+function getRouteUrl(stops) {
+  const points = stops.filter(s => s.lat && s.lng);
+  return `https://www.google.com/maps/dir/${points.map(s => `${s.lat},${s.lng}`).join('/')}/`;
+}
+
+// ===== ITINERARY =====
+function getPeriod(time) {
+  const hour = parseInt(time.split(':')[0]);
+  if (hour < 12) return 'Sáng';
+  if (hour < 17) return 'Chiều';
+  return 'Tối';
+}
+
+function formatTime(time) {
+  const [h, m] = time.split(':');
+  const hour = parseInt(h);
+  const suffix = hour < 12 ? 'AM' : 'PM';
+  const display = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+  return `${display}:${m} ${suffix}`;
+}
+
+function renderItinerary(stops, color) {
+  const groups = [];
+  let current = null;
+
+  stops.forEach((stop, i) => {
+    const period = getPeriod(stop.arrivalTime);
+    if (!current || current.period !== period) {
+      current = { period, stops: [] };
+      groups.push(current);
+    }
+    current.stops.push({ ...stop, index: i + 1 });
+  });
+
+  return groups.map(group => `
+    <div class="itinerary-group">
+      <h4 class="itinerary-group__title">${group.period}</h4>
+      ${group.stops.map(stop => {
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${stop.lat},${stop.lng}`;
+        return `
+          <a href="${mapsUrl}" target="_blank" rel="noopener" class="itinerary-stop">
+            <div class="itinerary-stop__marker ${stop.type}" style="background: ${color}">
+              ${stop.index}
+            </div>
+            <div class="itinerary-stop__info">
+              <span class="itinerary-stop__time">${formatTime(stop.arrivalTime)}</span>
+              <h4 class="itinerary-stop__name">${stop.name}</h4>
+              ${stop.food ? `<div class="itinerary-stop__meta">🍜 ${stop.food}</div>` : ''}
+              ${stop.duration ? `<div class="itinerary-stop__meta">🕐 ${stop.duration >= 60 ? Math.floor(stop.duration / 60) + 'h' + (stop.duration % 60 ? stop.duration % 60 + 'min' : '') : stop.duration + ' phút'}</div>` : ''}
+              <p class="itinerary-stop__desc">${stop.description || ''}</p>
+            </div>
           </a>
-        </div>
-      </div>
-    `;
-  }).join('');
+        `;
+      }).join('')}
+    </div>
+  `).join('');
 }
 
 // ===== COST BREAKDOWN =====
@@ -191,7 +257,7 @@ function renderCostBreakdown(planId) {
   const plan = PLANS[planId];
   return `
     <div class="cost-breakdown">
-      <div class="cost-breakdown__title">💰 Chi phí ước tính — Plan ${planId} (10 người)</div>
+      <div class="cost-breakdown__title">💰 Chi phí ước tính (10 người)</div>
       ${plan.cost.items.map(item => `
         <div class="cost-breakdown__row">
           <span>${item.label}</span>
@@ -224,15 +290,7 @@ function renderWeatherWidget() {
   `;
 }
 
-// ===== SHARE =====
-function renderShareButton(planId) {
-  return `
-    <button class="share-btn" onclick="shareTrip('${planId}')">
-      📤 Chia sẻ Plan ${planId}
-    </button>
-  `;
-}
-
+// ===== SHARE & COPY =====
 async function shareTrip(planId) {
   const url = `${window.location.origin}${window.location.pathname}?plan=${planId}`;
   const text = `黒部富山旅行 GW 2026 — Plan ${planId}: ${PLANS[planId].name}`;
@@ -250,6 +308,21 @@ async function shareTrip(planId) {
     } catch {
       showToast('Không thể copy link');
     }
+  }
+}
+
+async function copyRoute(planId) {
+  const plan = PLANS[planId];
+  const day = plan.days[currentDay];
+  const text = `${day.title} — ${day.subtitle}\n` +
+    day.stops.map(s => `${s.arrivalTime} ${s.name}`).join('\n') +
+    `\n\n${getRouteUrl(day.stops)}`;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast('Đã copy lịch trình!');
+  } catch {
+    showToast('Không thể copy');
   }
 }
 
@@ -345,19 +418,4 @@ function switchEssentialsTab(tabId) {
 
   document.querySelector(`.essentials-tab[data-tab="${tabId}"]`).classList.add('active');
   document.getElementById(`panel-${tabId}`).classList.add('active');
-}
-
-// ===== SCROLL REVEAL =====
-function initScrollReveal() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.stop-card').forEach(card => {
-    observer.observe(card);
-  });
 }
