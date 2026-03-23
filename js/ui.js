@@ -265,6 +265,13 @@ function renderItinerary(stops, color) {
               ${stop.food ? `<div class="itinerary-stop__meta">🍜 ${stop.food}</div>` : ''}
               ${stop.duration ? `<div class="itinerary-stop__meta">🕐 ${stop.duration >= 60 ? Math.floor(stop.duration / 60) + 'h' + (stop.duration % 60 ? stop.duration % 60 + 'min' : '') : stop.duration + ' phút'}</div>` : ''}
               <p class="itinerary-stop__desc">${stop.description || ''}</p>
+              ${stop.images && stop.images.length > 0 ? `
+                <div class="itinerary-stop__gallery">
+                  ${stop.images.map(img => `
+                    <img src="${img.url}" alt="${img.alt || stop.name}" loading="lazy" onerror="this.parentElement.removeChild(this)">
+                  `).join('')}
+                </div>
+              ` : ''}
             </div>
           </a>
         `;

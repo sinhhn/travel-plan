@@ -59,6 +59,10 @@ const PLANS = {
             food: '五箇山豆腐 · 岩魚塩焼き',
             tips: 'Exit 北陸道 tại 砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường, không vòng.',
             weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg/640px-Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg', alt: '五箇山 相倉集落 gassho village' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Gokayama_ainokura_gassho-zukuri_village_in_winter.JPG/640px-Gokayama_ainokura_gassho-zukuri_village_in_winter.JPG', alt: '五箇山 相倉 tuyết' },
+            ],
           },
           {
             id: 'hotel-r9-a-d1',
@@ -112,6 +116,10 @@ const PLANS = {
             food: 'Bento mang theo hoặc quán tại Murodo',
             tips: 'Mặc áo ấm dày — nhiệt độ -3 đến 2°C. Tuyết có thể rơi.',
             weather: '-3 ~ 2°C · ❄️ Cần áo ấm dày, tuyết có thể rơi',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Tateyama_snow_corridor_1.jpg/640px-Tateyama_snow_corridor_1.jpg', alt: '雪の大谷 tường tuyết' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Murodo_Tateyama.jpg/640px-Murodo_Tateyama.jpg', alt: '室堂 Murodo highland' },
+            ],
           },
           {
             id: 'kurobe-dam',
@@ -124,6 +132,9 @@ const PLANS = {
             food: 'Kurobe Dam Curry (cà ri hình đập)',
             tips: 'Chụp ảnh panorama từ đài quan sát. Không vội — tận hưởng!',
             weather: '5-10°C · 🌬️ Lạnh, gió mạnh',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kurobe_Dam.jpg/640px-Kurobe_Dam.jpg', alt: '黒部ダム Kurobe Dam' },
+            ],
           },
           {
             id: 'hotel-r9-a-d2',
@@ -166,6 +177,9 @@ const PLANS = {
             food: 'Ăn sáng tại hotel trước khi đi',
             tips: 'Chọn toa mở để ngắm cảnh. Đặt vé trước! Chuyến sớm ít đông.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ trolley' },
+            ],
           },
           {
             id: 'a-d3-unazuki',
@@ -264,6 +278,9 @@ const PLANS = {
             food: 'Ăn trưa tại khu vực / mang bento',
             tips: 'Xem show cá (giờ cố định). ミラージュランド rides ~300-400¥/lượt.',
             weather: '15-22°C · 🌤️ Ấm, ven biển gió mát',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Uozu_aquarium.jpg/640px-Uozu_aquarium.jpg', alt: '魚津水族館' },
+            ],
           },
           {
             id: 'hotel-r9-b-d1',
@@ -306,6 +323,9 @@ const PLANS = {
             food: 'Ăn sáng tại hotel, mang đồ ăn nhẹ',
             tips: 'Đặt vé trước! Chọn toa mở (open car). Mang áo khoác — hẻm núi mát.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ, cảnh xanh',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ' },
+            ],
           },
           {
             id: 'unazuki-onsen',
@@ -330,6 +350,9 @@ const PLANS = {
             food: null,
             tips: 'Mang xô/túi. Đá jade màu xanh lục nhạt. Trẻ rất thích dù không tìm được jade thật!',
             weather: '15-20°C · 🌊 Gió biển mát, nắng nhẹ',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Hisui_Kaigan_in_2020-08.jpg/640px-Hisui_Kaigan_in_2020-08.jpg', alt: 'ヒスイ海岸 bãi biển ngọc bích' },
+            ],
           },
           {
             id: 'hotel-r9-b-d2',
@@ -371,6 +394,9 @@ const PLANS = {
             food: 'Cafe TAD · 白エビバーガー · Starbucks',
             tips: 'Hai nơi liền kề. Rooftop mở ngoài trời, miễn phí.',
             weather: '15-22°C · 🌤️ Ấm, view núi đẹp',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Fugan_Unga_Kansui_Koen06.jpg/640px-Fugan_Unga_Kansui_Koen06.jpg', alt: '環水公園 Kansui Park' },
+            ],
           },
           {
             id: 'b-d3-rest',
@@ -456,6 +482,9 @@ const PLANS = {
             food: 'Soba Matsumoto (mì kiều mạch)',
             tips: 'Đến trước 10h để vào nhanh. GW sau 10h xếp hàng rất dài.',
             weather: '10-20°C · 🌤️ Mát buổi sáng, ấm trưa',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg/640px-130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg', alt: '松本城 Matsumoto Castle' },
+            ],
           },
           {
             id: 'c-d1-drive',
@@ -619,17 +648,240 @@ const PLANS = {
       },
     ],
   },
+
+  D: {
+    name: '五箇山 & 称名滝',
+    color: '#5B6ABF',
+    subtitle: 'Thác cao nhất Nhật + UNESCO village + Trolley — không cần vé Alpine, tiết kiệm',
+    route: '五箇山 → 称名滝 → 魚津水族館 → トロッコ',
+    highlights: [
+      { icon: '💧', text: '称名滝 — thác cao nhất Nhật Bản (350m)' },
+      { icon: '🏘️', text: '五箇山 UNESCO — yên tĩnh, ít đông' },
+      { icon: '💰', text: 'Không cần vé Alpine Route — tiết kiệm ~¥55,000' },
+    ],
+    routeGo: '上信越道 + 北陸道 (380km · 5h30) — cảnh núi→biển đẹp',
+    routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm, ít cua',
+    routeOptions: [
+      '✅ 上信越道 + 北陸道 — Ngắn nhất đến 五箇山. Cảnh núi→biển đẹp. (380km · 5h30)',
+      '関越道 + 北陸道 via 長岡 — Dễ lái nhất, ít cua. Trẻ ít say. (430km · 6h)',
+      '上信越道 xuyên Nagano — Cảnh núi đẹp nhất nhưng cua nhiều, trẻ dễ say. (360km · 5h30)',
+    ],
+    days: [
+      {
+        dayNum: 1,
+        title: 'Day 1 — Chủ Nhật 3/5',
+        subtitle: '向島 → 五箇山 → HOTEL R9',
+        specialties: [
+          { emoji: '🧈', name: '五箇山豆腐', where: '五箇山', desc: 'Đậu hũ cứng nướng than, đậm đà — đặc sản UNESCO village' },
+          { emoji: '🐟', name: '岩魚塩焼き', where: '五箇山', desc: 'Cá suối nướng muối thơm giòn, trẻ em thích' },
+          { emoji: '🍜', name: '富山ブラックラーメン', where: 'Kurobe', desc: 'Ramen đen xì dầu đậm đặc — ăn tối tại Kurobe' },
+        ],
+        segments: [
+          { from: '向島', to: '五箇山', km: 380, time: '5h30', mode: 'car' },
+          { from: '五箇山', to: 'HOTEL R9', km: 110, time: '1h30', mode: 'car' },
+        ],
+        stops: [
+          {
+            id: 'd-d1-depart',
+            name: 'Tập kết nhà anh Hà (向島)',
+            lat: 35.7180, lng: 139.8130,
+            arrivalTime: '06:00',
+            duration: 0,
+            type: 'minor',
+            description: '3 xe tập kết tại 墨田区向島5-35-11. Đổ xăng trên Meiji-dori → 向島入口 → 首都高6号 → 関越道.',
+            food: null,
+            tips: '2 nhà đến trước 5:50. Cùng xuất phát 6:00.',
+            weather: '18-24°C · 🌤️ Tokyo ấm',
+          },
+          {
+            id: 'd-gokayama',
+            name: '五箇山 相倉集落',
+            lat: 36.4260, lng: 136.9355,
+            arrivalTime: '12:00',
+            duration: 90,
+            type: 'major',
+            description: 'Làng mái tranh gassho UNESCO yên tĩnh nhất. Trẻ em thích khám phá nhà 3 tầng. Ít đông hơn 白川郷 nhiều.',
+            food: '五箇山豆腐 · 岩魚塩焼き',
+            tips: 'Exit 北陸道 tại 砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường, không vòng.',
+            weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg/640px-Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg', alt: '五箇山 相倉集落' },
+            ],
+          },
+          {
+            id: 'd-hotel-r9-d1',
+            name: 'HOTEL R9 The Yard Kurobe',
+            lat: 36.8719, lng: 137.4479,
+            arrivalTime: '15:30',
+            duration: 0,
+            type: 'major',
+            description: 'Check-in khách sạn. Nghỉ ngơi sau chặng đường dài.',
+            food: 'Ăn tối tại nhà hàng quanh Kurobe',
+            tips: 'Gần Kurobe IC, tiện di chuyển ngày hôm sau',
+            weather: '14-20°C · 🌸 Mát mẻ buổi tối',
+          },
+        ],
+      },
+      {
+        dayNum: 2,
+        title: 'Day 2 — Thứ Hai 4/5',
+        subtitle: '称名滝 → ほたるいか → 魚津水族館',
+        specialties: [
+          { emoji: '🦑', name: 'ほたるいか (Hotaruika)', where: 'ほたるいかミュージアム', desc: 'Mực phát sáng live — sashimi hoặc tempura, chỉ có mùa này' },
+          { emoji: '🦐', name: '白エビ天丼', where: '魚津', desc: 'Tôm trắng Toyama chiên giòn — đặc sản #1' },
+          { emoji: '🍦', name: 'Kem Tateyama', where: '称名滝 area', desc: 'Kem sữa tươi vùng núi — bán tại quầy gần bãi đỗ' },
+        ],
+        segments: [
+          { from: 'HOTEL R9', to: '称名滝', km: 45, time: '50min', mode: 'car' },
+          { from: '称名滝', to: 'ほたるいかミュージアム', km: 50, time: '50min', mode: 'car' },
+          { from: 'ほたるいか', to: '魚津水族館', km: 10, time: '10min', mode: 'car' },
+          { from: '魚津', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
+        ],
+        stops: [
+          {
+            id: 'd-shomyo',
+            name: '称名滝 (Shomyo Falls)',
+            lat: 36.5733, lng: 137.4867,
+            arrivalTime: '08:00',
+            duration: 120,
+            type: 'major',
+            description: 'Thác cao nhất Nhật Bản (350m)! Tháng 5 tuyết tan → thác Hannoki bên cạnh (500m) cũng chảy → double waterfall cực kỳ ấn tượng. Nắng sáng chiếu trực tiếp, có cầu vồng.',
+            food: null,
+            tips: 'Đi sáng sớm = đẹp nhất (nắng chiếu mặt thác + nước mạnh). Đi bộ 30 phút từ bãi đỗ, đường paved. Mang giày thoải mái.',
+            weather: '10-16°C · 🌤️ Mát, nắng sáng đẹp',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Shomyo_Falls_with_Hannoki_Falls.jpg/640px-Shomyo_Falls_with_Hannoki_Falls.jpg', alt: '称名滝 + ハンノキ滝 double waterfall' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Syoumyoudaki.jpg/640px-Syoumyoudaki.jpg', alt: '称名滝 Shomyo Falls' },
+            ],
+          },
+          {
+            id: 'd-hotaruika',
+            name: 'ほたるいかミュージアム',
+            lat: 36.7632, lng: 137.3355,
+            arrivalTime: '11:00',
+            duration: 60,
+            type: 'major',
+            description: 'Bảo tàng mực phát sáng — xem live hotaruika phát sáng trong phòng tối. Chỉ có mùa 3-5 mới có live display! Touch pool cho trẻ.',
+            food: 'Ăn trưa: hotaruika tempura tại quán bên cạnh',
+            tips: 'Live display là highlight — đừng bỏ lỡ! Trẻ em rất thích phòng tối xem mực sáng.',
+            weather: '15-20°C · 🌤️ Ven biển, gió mát',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Watasenia_scintillans.jpg/640px-Watasenia_scintillans.jpg', alt: 'ほたるいか hotaruika mực phát sáng' },
+            ],
+          },
+          {
+            id: 'd-uozu',
+            name: '魚津水族館 + ミラージュランド',
+            lat: 36.7984, lng: 137.3882,
+            arrivalTime: '12:30',
+            duration: 120,
+            type: 'major',
+            description: 'Thủy cung cổ nhất Nhật Bản — nhỏ nhưng ấm cúng. Bên cạnh là ミラージュランド (đu quay, rides nhẹ cho trẻ, view biển).',
+            food: '白エビ天丼 tại quán ven biển',
+            tips: 'Xem show cá (giờ cố định). ミラージュランド rides ~300-400¥/lượt. Trẻ chơi thoải mái.',
+            weather: '15-22°C · 🌤️ Ấm, ven biển gió mát',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Uozu_aquarium.jpg/640px-Uozu_aquarium.jpg', alt: '魚津水族館 Uozu Aquarium' },
+            ],
+          },
+          {
+            id: 'd-hotel-r9-d2',
+            name: 'HOTEL R9 The Yard Kurobe',
+            lat: 36.8719, lng: 137.4479,
+            arrivalTime: '15:30',
+            duration: 0,
+            type: 'minor',
+            description: 'Về hotel sớm, nghỉ ngơi thoải mái. Ngày nhẹ nhàng!',
+            food: 'Ăn tối: hải sản tươi Toyama',
+            tips: 'Về sớm — trẻ không mệt, người lớn thư giãn.',
+            weather: '14-20°C · 🌙 Mát mẻ',
+          },
+        ],
+      },
+      {
+        dayNum: 3,
+        title: 'Day 3 — Thứ Ba 5/5',
+        subtitle: 'トロッコ → 宇奈月 → Nghỉ → Về Tokyo tối',
+        specialties: [
+          { emoji: '🍦', name: 'Kem onsen', where: '宇奈月', desc: 'Kem mềm mịn bán dọc phố onsen — trẻ em mê' },
+          { emoji: '🍡', name: '温泉たまご', where: '宇奈月', desc: 'Trứng luộc suối nóng, vỏ mềm lòng đào — ăn kèm muối' },
+          { emoji: '🍣', name: 'ます寿し bento', where: 'SA đường về', desc: 'Sushi cá hồi ép truyền thống Toyama — mua mang đi ăn trên xe' },
+        ],
+        segments: [
+          { from: 'HOTEL R9', to: '宇奈月駅 (トロッコ)', km: 20, time: '25min', mode: 'car' },
+          { from: 'トロッコ往復', to: 'Kanetsuri', km: 20, time: '1h30', mode: 'trolley' },
+          { from: '宇奈月', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
+          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
+        ],
+        stops: [
+          {
+            id: 'd-trolley',
+            name: '黒部峡谷トロッコ',
+            lat: 36.8150, lng: 137.5860,
+            arrivalTime: '08:30',
+            duration: 120,
+            type: 'major',
+            description: 'Tàu trolley dọc hẻm núi Kurobe. Đi short trip đến Kanetsuri (~40 phút) rồi quay lại.',
+            food: 'Ăn sáng tại hotel trước khi đi',
+            tips: 'Chọn toa mở để ngắm cảnh. Đặt vé trước! Chuyến sớm ít đông.',
+            weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ' },
+            ],
+          },
+          {
+            id: 'd-unazuki',
+            name: '宇奈月温泉 散策',
+            lat: 36.8173, lng: 137.5841,
+            arrivalTime: '11:00',
+            duration: 60,
+            type: 'minor',
+            description: 'Tản bộ phố onsen, ngâm chân ashiyu miễn phí. Mua omiyage.',
+            food: 'Ăn trưa tại Unazuki',
+            tips: 'Nhiều ashiyu dọc phố. Trẻ em rất thích!',
+            weather: '14-20°C · 🌸 Dễ chịu',
+          },
+          {
+            id: 'd-d3-rest',
+            name: 'Về HOTEL R9 · Nghỉ ngơi & đóng đồ',
+            lat: 36.8719, lng: 137.4479,
+            arrivalTime: '13:00',
+            duration: 0,
+            type: 'minor',
+            description: 'Về hotel nghỉ trưa, đóng đồ, cho trẻ ngủ. Tránh Uターンラッシュ chiều (13:00-18:00).',
+            food: null,
+            tips: '⚠️ KHÔNG lái xe 13:00-18:00 — giờ tắc nặng nhất GW',
+            weather: '15-22°C · 🌤️',
+          },
+          {
+            id: 'd-d3-return',
+            name: 'Xuất phát về Tokyo',
+            lat: 35.7180, lng: 139.8130,
+            arrivalTime: '19:00',
+            duration: 0,
+            type: 'major',
+            description: 'Về qua 北陸道 → 関越道 (an toàn lái đêm, ít cua). ~5h. Dự kiến về 向島 0:00-1:00 AM.',
+            food: 'Mua bento/onigiri tại konbini trước khi đi',
+            tips: 'Nghỉ SA nếu buồn ngủ. Chia ca lái. Trẻ sẽ ngủ trên xe.',
+            weather: '14°C → 18°C · 🌙 Mát, đường vắng',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 // ===== COMPARISON DATA =====
 const COMPARISON = [
-  { label: 'Tường tuyết', A: { text: 'Có', type: 'yes' }, B: { text: 'Không', type: 'no' }, C: { text: 'Có', type: 'yes' } },
-  { label: 'Trolley hẻm núi', A: { text: 'Có', type: 'yes' }, B: { text: 'Có', type: 'yes' }, C: { text: 'Có', type: 'yes' } },
-  { label: 'Độ vất vả', A: { text: '🔥🔥🔥', type: 'neutral' }, B: { text: '🔥', type: 'neutral' }, C: { text: '🔥🔥🔥', type: 'neutral' } },
-  { label: 'Bé < 4 tuổi', A: { text: '⚠️ Khó', type: 'warn' }, B: { text: 'Tốt', type: 'yes' }, C: { text: '⚠️ Khó', type: 'warn' } },
-  { label: 'Tránh đông', A: { text: '⭐⭐', type: 'neutral' }, B: { text: '⭐⭐⭐', type: 'neutral' }, C: { text: '⭐⭐⭐', type: 'neutral' } },
-  { label: 'Tổng km', A: { text: '~1,080km', type: 'neutral' }, B: { text: '~960km', type: 'neutral' }, C: { text: '~1,050km', type: 'neutral' } },
-  { label: 'Điểm đặc biệt', A: { text: '五箇山 UNESCO', type: 'neutral' }, B: { text: 'ヒスイ海岸 săn ngọc', type: 'neutral' }, C: { text: '松本城 + Alps drive', type: 'neutral' } },
+  { label: 'Tường tuyết', A: { text: 'Có', type: 'yes' }, B: { text: 'Không', type: 'no' }, C: { text: 'Có', type: 'yes' }, D: { text: 'Không', type: 'no' } },
+  { label: 'Trolley hẻm núi', A: { text: 'Có', type: 'yes' }, B: { text: 'Có', type: 'yes' }, C: { text: 'Có', type: 'yes' }, D: { text: 'Có', type: 'yes' } },
+  { label: '称名滝 (350m)', A: { text: 'Không', type: 'no' }, B: { text: 'Không', type: 'no' }, C: { text: 'Không', type: 'no' }, D: { text: 'Có', type: 'yes' } },
+  { label: 'Cần vé Alpine', A: { text: '~¥55,000', type: 'warn' }, B: { text: 'Không', type: 'yes' }, C: { text: '~¥55,000', type: 'warn' }, D: { text: 'Không', type: 'yes' } },
+  { label: 'Độ vất vả', A: { text: '🔥🔥🔥', type: 'neutral' }, B: { text: '🔥', type: 'neutral' }, C: { text: '🔥🔥🔥', type: 'neutral' }, D: { text: '🔥🔥', type: 'neutral' } },
+  { label: 'Bé < 4 tuổi', A: { text: '⚠️ Khó', type: 'warn' }, B: { text: 'Tốt', type: 'yes' }, C: { text: '⚠️ Khó', type: 'warn' }, D: { text: 'Tốt', type: 'yes' } },
+  { label: 'Tránh đông', A: { text: '⭐⭐', type: 'neutral' }, B: { text: '⭐⭐⭐', type: 'neutral' }, C: { text: '⭐⭐⭐', type: 'neutral' }, D: { text: '⭐⭐⭐', type: 'neutral' } },
+  { label: 'Tổng km', A: { text: '~1,080km', type: 'neutral' }, B: { text: '~960km', type: 'neutral' }, C: { text: '~1,050km', type: 'neutral' }, D: { text: '~1,020km', type: 'neutral' } },
+  { label: 'Điểm đặc biệt', A: { text: '五箇山 UNESCO', type: 'neutral' }, B: { text: 'ヒスイ海岸 săn ngọc', type: 'neutral' }, C: { text: '松本城 + Alps drive', type: 'neutral' }, D: { text: '称名滝 + 水族館', type: 'neutral' } },
 ];
 
 // ===== CHECKLIST =====

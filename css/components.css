@@ -206,6 +206,7 @@
 .plan-card.selected[data-plan="A"] { border-color: var(--plan-a); background: rgba(46,74,107,0.04); }
 .plan-card.selected[data-plan="B"] { border-color: var(--plan-b); background: rgba(61,107,79,0.04); }
 .plan-card.selected[data-plan="C"] { border-color: var(--plan-c); background: rgba(139,69,19,0.04); }
+.plan-card.selected[data-plan="D"] { border-color: var(--plan-d); background: rgba(91,106,191,0.04); }
 
 .plan-card__index {
   position: absolute;
@@ -230,6 +231,7 @@
 .plan-card[data-plan="A"] .plan-card__label { color: var(--plan-a); }
 .plan-card[data-plan="B"] .plan-card__label { color: var(--plan-b); }
 .plan-card[data-plan="C"] .plan-card__label { color: var(--plan-c); }
+.plan-card[data-plan="D"] .plan-card__label { color: var(--plan-d); }
 
 .plan-card__name {
   font-family: var(--font-display);
@@ -276,6 +278,7 @@
 .plan-card[data-plan="A"] .plan-card__cta { background: var(--plan-a); color: var(--snow); }
 .plan-card[data-plan="B"] .plan-card__cta { background: var(--plan-b); color: var(--snow); }
 .plan-card[data-plan="C"] .plan-card__cta { background: var(--plan-c); color: var(--snow); }
+.plan-card[data-plan="D"] .plan-card__cta { background: var(--plan-d); color: var(--snow); }
 
 .plan-card.selected .plan-card__cta {
   opacity: 0.7;
@@ -507,6 +510,7 @@
 .comparison-table th[data-plan="A"] { color: var(--plan-a); }
 .comparison-table th[data-plan="B"] { color: var(--plan-b); }
 .comparison-table th[data-plan="C"] { color: var(--plan-c); }
+.comparison-table th[data-plan="D"] { color: var(--plan-d); }
 
 .pill {
   display: inline-block;
@@ -1123,6 +1127,33 @@
   color: rgba(255,255,255,0.5);
   margin-top: 4px;
   line-height: 1.5;
+}
+
+.itinerary-stop__gallery {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.itinerary-stop__gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.itinerary-stop__gallery img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.itinerary-stop__gallery img:hover {
+  opacity: 1;
 }
 
 /* --- Extras (cost/weather inside dark panel) --- */
