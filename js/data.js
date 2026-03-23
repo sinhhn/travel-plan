@@ -60,8 +60,7 @@ const PLANS = {
             tips: 'Exit 北陸道 tại 砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường, không vòng.',
             weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg/640px-Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg', alt: '五箇山 相倉集落 gassho village' },
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Gokayama_ainokura_gassho-zukuri_village_in_winter.JPG/640px-Gokayama_ainokura_gassho-zukuri_village_in_winter.JPG', alt: '五箇山 相倉 tuyết' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ainokura_in_Gokayama_area.jpg/640px-Ainokura_in_Gokayama_area.jpg', alt: '五箇山 相倉集落 gassho village' },
             ],
           },
           {
@@ -117,8 +116,7 @@ const PLANS = {
             tips: 'Mặc áo ấm dày — nhiệt độ -3 đến 2°C. Tuyết có thể rơi.',
             weather: '-3 ~ 2°C · ❄️ Cần áo ấm dày, tuyết có thể rơi',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Tateyama_snow_corridor_1.jpg/640px-Tateyama_snow_corridor_1.jpg', alt: '雪の大谷 tường tuyết' },
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Murodo_Tateyama.jpg/640px-Murodo_Tateyama.jpg', alt: '室堂 Murodo highland' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tateyama_Toll_Road_and_Yuki-no-otani.jpg/640px-Tateyama_Toll_Road_and_Yuki-no-otani.jpg', alt: '雪の大谷 tường tuyết' },
             ],
           },
           {
@@ -133,7 +131,7 @@ const PLANS = {
             tips: 'Chụp ảnh panorama từ đài quan sát. Không vội — tận hưởng!',
             weather: '5-10°C · 🌬️ Lạnh, gió mạnh',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Kurobe_Dam.jpg/640px-Kurobe_Dam.jpg', alt: '黒部ダム Kurobe Dam' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Kurobe_Dam_20141012_130913.jpg/640px-Kurobe_Dam_20141012_130913.jpg', alt: '黒部ダム Kurobe Dam' },
             ],
           },
           {
@@ -178,7 +176,7 @@ const PLANS = {
             tips: 'Chọn toa mở để ngắm cảnh. Đặt vé trước! Chuyến sớm ít đông.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ trolley' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ trolley' },
             ],
           },
           {
@@ -279,7 +277,7 @@ const PLANS = {
             tips: 'Xem show cá (giờ cố định). ミラージュランド rides ~300-400¥/lượt.',
             weather: '15-22°C · 🌤️ Ấm, ven biển gió mát',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Uozu_aquarium.jpg/640px-Uozu_aquarium.jpg', alt: '魚津水族館' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/UOZU_AQUARIUM.jpg/640px-UOZU_AQUARIUM.jpg', alt: '魚津水族館' },
             ],
           },
           {
@@ -324,7 +322,7 @@ const PLANS = {
             tips: 'Đặt vé trước! Chọn toa mở (open car). Mang áo khoác — hẻm núi mát.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ, cảnh xanh',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
             ],
           },
           {
@@ -351,7 +349,7 @@ const PLANS = {
             tips: 'Mang xô/túi. Đá jade màu xanh lục nhạt. Trẻ rất thích dù không tìm được jade thật!',
             weather: '15-20°C · 🌊 Gió biển mát, nắng nhẹ',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Hisui_Kaigan_in_2020-08.jpg/640px-Hisui_Kaigan_in_2020-08.jpg', alt: 'ヒスイ海岸 bãi biển ngọc bích' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Itoigawa_Jade_Coast_ac_%281%29.jpg/640px-Itoigawa_Jade_Coast_ac_%281%29.jpg', alt: 'ヒスイ海岸 bãi biển ngọc bích' },
             ],
           },
           {
@@ -395,7 +393,7 @@ const PLANS = {
             tips: 'Hai nơi liền kề. Rooftop mở ngoài trời, miễn phí.',
             weather: '15-22°C · 🌤️ Ấm, view núi đẹp',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Fugan_Unga_Kansui_Koen06.jpg/640px-Fugan_Unga_Kansui_Koen06.jpg', alt: '環水公園 Kansui Park' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Fugan_Canal_Kansui_Park_20170414.jpg/640px-Fugan_Canal_Kansui_Park_20170414.jpg', alt: '環水公園 Kansui Park' },
             ],
           },
           {
@@ -483,7 +481,7 @@ const PLANS = {
             tips: 'Đến trước 10h để vào nhanh. GW sau 10h xếp hàng rất dài.',
             weather: '10-20°C · 🌤️ Mát buổi sáng, ấm trưa',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg/640px-130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg', alt: '松本城 Matsumoto Castle' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg/640px-130608_Matsumoto_Castle_Matsumoto_Nagano_pref_Japan02bs4.jpg', alt: '松本城 Matsumoto Castle' },
             ],
           },
           {
@@ -705,7 +703,7 @@ const PLANS = {
             tips: 'Exit 北陸道 tại 砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường, không vòng.',
             weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg/640px-Ainokura_Gassho-zukuri_Village%2C_a_World_Heritage_Site_in_Nanto%2C_Toyama%2C_Japan_04.jpg', alt: '五箇山 相倉集落' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ainokura_in_Gokayama_area.jpg/640px-Ainokura_in_Gokayama_area.jpg', alt: '五箇山 相倉集落' },
             ],
           },
           {
@@ -750,8 +748,7 @@ const PLANS = {
             tips: 'Đi sáng sớm = đẹp nhất (nắng chiếu mặt thác + nước mạnh). Đi bộ 30 phút từ bãi đỗ, đường paved. Mang giày thoải mái.',
             weather: '10-16°C · 🌤️ Mát, nắng sáng đẹp',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Shomyo_Falls_with_Hannoki_Falls.jpg/640px-Shomyo_Falls_with_Hannoki_Falls.jpg', alt: '称名滝 + ハンノキ滝 double waterfall' },
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Syoumyoudaki.jpg/640px-Syoumyoudaki.jpg', alt: '称名滝 Shomyo Falls' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/640px-Shomyo-daki_1.jpg', alt: '称名滝 Shomyo Falls' },
             ],
           },
           {
@@ -766,7 +763,7 @@ const PLANS = {
             tips: 'Live display là highlight — đừng bỏ lỡ! Trẻ em rất thích phòng tối xem mực sáng.',
             weather: '15-20°C · 🌤️ Ven biển, gió mát',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Watasenia_scintillans.jpg/640px-Watasenia_scintillans.jpg', alt: 'ほたるいか hotaruika mực phát sáng' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Watasenia_scintillans.jpg', alt: 'ほたるいか hotaruika mực phát sáng' },
             ],
           },
           {
@@ -781,7 +778,7 @@ const PLANS = {
             tips: 'Xem show cá (giờ cố định). ミラージュランド rides ~300-400¥/lượt. Trẻ chơi thoải mái.',
             weather: '15-22°C · 🌤️ Ấm, ven biển gió mát',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Uozu_aquarium.jpg/640px-Uozu_aquarium.jpg', alt: '魚津水族館 Uozu Aquarium' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/UOZU_AQUARIUM.jpg/640px-UOZU_AQUARIUM.jpg', alt: '魚津水族館 Uozu Aquarium' },
             ],
           },
           {
@@ -826,7 +823,7 @@ const PLANS = {
             tips: 'Chọn toa mở để ngắm cảnh. Đặt vé trước! Chuyến sớm ít đông.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
             images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kurobe-kyokokutetsudo01.jpg/640px-Kurobe-kyokokutetsudo01.jpg', alt: '黒部峡谷トロッコ' },
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
             ],
           },
           {
