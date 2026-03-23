@@ -150,6 +150,15 @@ function renderPlanDetail(planId) {
 
       <!-- Itinerary Panel -->
       <div class="plan-viewer__panel">
+        <div class="plan-viewer__sticky-tabs">
+          ${plan.days.map((d, i) => `
+            <button class="plan-viewer__sticky-tab ${i === currentDay ? 'active' : ''}"
+                    onclick="switchDay(${i})">
+              Day ${d.dayNum}
+              <span class="plan-viewer__sticky-tab-date">${d.title.split('—')[1]?.trim() || ''}</span>
+            </button>
+          `).join('')}
+        </div>
         <div class="plan-viewer__header">
           <h2>${day.title} — ${day.subtitle}</h2>
           <p>${desc}</p>
