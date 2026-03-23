@@ -1132,7 +1132,8 @@
 .itinerary-stop__gallery {
   display: flex;
   gap: 6px;
-  margin-top: 8px;
+  margin: 0 0 6px 50px;
+  padding: 4px 0;
   overflow-x: auto;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
