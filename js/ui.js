@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== NAV =====
 function renderNavPills() {
   const container = document.getElementById('nav-pills');
-  container.innerHTML = ['A', 'B', 'C'].map(id => `
+  container.innerHTML = Object.keys(PLANS).map(id => `
     <button class="nav__pill ${id === currentPlan ? 'active' : ''}"
             data-plan="${id}"
             onclick="selectPlan('${id}')"
@@ -64,7 +64,7 @@ function initNavScroll() {
 // ===== PLAN CARDS =====
 function renderPlanCards() {
   const container = document.getElementById('plan-cards');
-  container.innerHTML = ['A', 'B', 'C'].map(id => {
+  container.innerHTML = Object.keys(PLANS).map(id => {
     const plan = PLANS[id];
     return `
       <div class="plan-card ${id === currentPlan ? 'selected' : ''}"
@@ -544,22 +544,20 @@ function showToast(message) {
 // ===== COMPARISON =====
 function renderComparison() {
   const table = document.getElementById('comparison-table');
+  const planIds = Object.keys(PLANS);
+  const planIcons = { A: '🏔️', B: '♨️', C: '🏯', D: '💧' };
   table.innerHTML = `
     <thead>
       <tr>
         <th></th>
-        <th data-plan="A">Plan A 🏔️</th>
-        <th data-plan="B">Plan B ♨️</th>
-        <th data-plan="C">Plan C 🏯</th>
+        ${planIds.map(id => `<th data-plan="${id}">Plan ${id} ${planIcons[id] || ''}</th>`).join('')}
       </tr>
     </thead>
     <tbody>
       ${COMPARISON.map(row => `
         <tr>
           <td>${row.label}</td>
-          <td><span class="pill pill--${row.A.type}">${row.A.text}</span></td>
-          <td><span class="pill pill--${row.B.type}">${row.B.text}</span></td>
-          <td><span class="pill pill--${row.C.type}">${row.C.text}</span></td>
+          ${planIds.map(id => `<td><span class="pill pill--${row[id].type}">${row[id].text}</span></td>`).join('')}
         </tr>
       `).join('')}
     </tbody>
