@@ -545,7 +545,7 @@ function showToast(message) {
 function renderComparison() {
   const table = document.getElementById('comparison-table');
   const planIds = Object.keys(PLANS);
-  const planIcons = { A: '🏔️', B: '♨️', C: '🏯', D: '💧' };
+  const planIcons = { A: '🏔️', B: '♨️', C: '🏯', D: '💧', E: '⛷️' };
   table.innerHTML = `
     <thead>
       <tr>
