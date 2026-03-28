@@ -169,8 +169,12 @@ function renderPlanGallery() {
     <div class="gallery-slideshow" id="gallery-slideshow">
       <div class="gallery-slideshow__viewport">
         <button class="gallery-slideshow__arrow gallery-slideshow__arrow--prev" onclick="slideGallery(-1)" aria-label="Previous">‹</button>
-        <div class="gallery-slideshow__slide">
-          <img src="${gallery[0].src}" alt="${gallery[0].caption}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23f0f0f0%22 width=%22400%22 height=%22300%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2214%22>Ảnh chưa có</text></svg>'">
+        <div class="gallery-slideshow__track" id="gallery-track">
+          ${gallery.map((img, i) => `
+            <div class="gallery-slideshow__slide ${i === 0 ? 'active' : ''}">
+              <img src="${img.src}" alt="${img.caption}" loading="${i < 2 ? 'eager' : 'lazy'}">
+            </div>
+          `).join('')}
         </div>
         <button class="gallery-slideshow__arrow gallery-slideshow__arrow--next" onclick="slideGallery(1)" aria-label="Next">›</button>
       </div>
@@ -383,22 +387,19 @@ function goToSlide(index) {
 function updateGallerySlide() {
   const plan = PLANS[currentPlan];
   const item = plan.gallery[galleryIndex];
-  const slide = document.querySelector('.gallery-slideshow__slide img');
+  const track = document.getElementById('gallery-track');
   const caption = document.getElementById('gallery-caption');
   const spot = document.getElementById('gallery-spot');
   const dots = document.querySelectorAll('.gallery-slideshow__dot');
+  const slides = document.querySelectorAll('.gallery-slideshow__slide');
 
-  if (!slide) return;
+  if (!track) return;
 
-  slide.style.opacity = '0';
-  setTimeout(() => {
-    slide.src = item.src;
-    slide.alt = item.caption;
-    caption.textContent = item.caption;
-    spot.textContent = '📍 ' + item.spot;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === galleryIndex));
-    slide.style.opacity = '1';
-  }, 200);
+  track.style.transform = `translateX(-${galleryIndex * 100}%)`;
+  caption.textContent = item.caption;
+  spot.textContent = '📍 ' + item.spot;
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === galleryIndex));
+  slides.forEach((s, i) => s.classList.toggle('active', i === galleryIndex));
 }
 
 // Swipe support for gallery
