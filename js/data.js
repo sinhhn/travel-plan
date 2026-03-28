@@ -104,7 +104,7 @@ const PLANS = {
             type: 'major',
             description: '宿泊: ペンション 風と旅のアトリエ（長野県立科町大門3518-2649）。白樺湖エリア・ビーナスライン沿いの高原ペンション。夜は満天の星空、翌朝は鳥のさえずりで目覚める — 3家族10人の特別な蓼科の夜。',
             food: '夕食: ペンション手料理コース (信州食材) · ワイン · 朝食: 焼きたてパン + 高原野菜サラダ',
-            tips: 'チェックイン 15:00〜。白樺湖まで車で数分。夜は外で星空観察 — 蓼科高原は光害少なく満天の星。翌朝早出のため朝食時間を事前に相談。',
+            tips: 'チェックイン 15:00〜。白樺湖まで車で数分。夜は外で星空観察 — 蓼科高原は光害少なく満天の星。⚠️ 翌朝出発前に宿主に道路凍結状況を確認すること — 標高1,400mのため5月初旬でも早朝3〜7°Cになることがあり、ビーナスラインが朝方凍結する場合あり。9時以降の出発が安全。翌朝の朝食時間も事前に相談。',
             weather: '8-14°C · 🌙 高原の夜 — 満天の星、鳥のさえずり',
           },
         ],
@@ -131,13 +131,13 @@ const PLANS = {
             id: 'a-d2-depart',
             name: 'Xuất phát ペンション風と旅のアトリエ → Alps Drive',
             lat: 36.0880, lng: 138.1800,
-            arrivalTime: '07:30',
+            arrivalTime: '09:00',
             duration: 0,
             type: 'minor',
-            description: 'Check-out sớm. Ăn sáng tại hotel rồi xuất phát. Route: 蓼科 → R299 → 松本 → 大町 → 白馬 → R148 → 糸魚川. Cung đường Alps đẹp nhất — dọc sông, qua hầm, núi tuyết 2 bên.',
-            food: 'Ăn sáng tại hotel',
-            tips: 'Xuất phát 7:30 để kịp チューリップフェア trước 12:00. Đường R148 trẻ ngủ ngon.',
-            weather: '8-14°C · 🌤️ Sáng sớm cao nguyên mát',
+            description: 'Check-out. Ăn sáng tại pension rồi xuất phát. Route: 蓼科 → R299 → 松本 → 大町 → 白馬 → R148 → 糸魚川. Cung đường Alps đẹp nhất — dọc sông, qua hầm, núi tuyết 2 bên.',
+            food: 'Ăn sáng tại pension (hỏi trước giờ phục vụ)',
+            tips: '⚠️ 凍結リスク: 5月初旬の早朝、ビーナスライン沿道（標高1,400m）が凍結する場合あり。スタッドレス不要だが、出発前に宿主に路面状況を確認すること。気温5°C以上・9時以降の出発が安全。R148（白馬→糸魚川）は標高が低く凍結なし。9:00出発でもチューリップフェアは12:30着で十分間に合う。',
+            weather: '8-14°C · 🌤️ Sáng cao nguyên mát — kiểm tra nhiệt độ trước khi đi',
           },
           {
             id: 'a-hakuba-view',
@@ -1243,7 +1243,7 @@ const COMPARISON = [
 
 // ===== CHECKLIST =====
 const CHECKLIST = [
-  { id: 'trolley-ticket', text: 'Vé Trolley Kurobe (ĐẶT TRƯỚC từ 1/4!) — tất cả plan', critical: true },
+  { id: 'freezing-road', text: '⚠️ Plan A: Hỏi chủ pension về tình trạng đường sáng sớm — ビーナスライン 1,400m có thể đóng băng tháng 5. Xuất phát sau 9:00 khi nắng lên là an toàn nhất.', critical: true },
   { id: 'tulip-ticket', text: 'Vé/thông tin チューリップフェア — Plan A, B, D (5/5 trẻ miễn phí!)', critical: false },
   { id: 'warm-jacket', text: 'Áo ấm dày (室堂 -5°C) — Plan C', critical: true },
   { id: 'snow-boots', text: 'Giày không trơn / giày đi tuyết — Plan C', critical: true },
