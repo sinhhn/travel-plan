@@ -1129,32 +1129,115 @@
   line-height: 1.5;
 }
 
-.itinerary-stop__gallery {
+/* --- Gallery Slideshow --- */
+.gallery-slideshow {
+  margin: var(--space-lg) var(--space-xl) var(--space-xl);
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  padding: var(--space-md);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.gallery-slideshow__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: var(--space-sm);
+}
+
+.gallery-slideshow__viewport {
+  position: relative;
   display: flex;
-  gap: 6px;
-  margin: 0 0 6px 50px;
-  padding: 4px 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  gap: 0;
 }
 
-.itinerary-stop__gallery::-webkit-scrollbar {
-  display: none;
+.gallery-slideshow__slide {
+  flex: 1;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.3);
 }
 
-.itinerary-stop__gallery img {
-  width: 120px;
-  height: 80px;
+.gallery-slideshow__slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
-  opacity: 0.85;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease;
 }
 
-.itinerary-stop__gallery img:hover {
-  opacity: 1;
+.gallery-slideshow__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-slideshow__arrow:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.gallery-slideshow__arrow--prev { left: 6px; }
+.gallery-slideshow__arrow--next { right: 6px; }
+
+.gallery-slideshow__info {
+  margin-top: var(--space-sm);
+}
+
+.gallery-slideshow__caption {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.4;
+}
+
+.gallery-slideshow__spot {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 2px;
+}
+
+.gallery-slideshow__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-sm);
+}
+
+.gallery-slideshow__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gallery-slideshow__dot.active {
+  background: rgba(255,255,255,0.8);
+  transform: scale(1.2);
+}
+
+.gallery-slideshow__counter {
+  text-align: center;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* --- Extras (cost/weather inside dark panel) --- */

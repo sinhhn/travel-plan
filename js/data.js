@@ -22,6 +22,9 @@ const PLANS = {
       '上信越道→長野→松本→白馬→糸魚川→砺波→黒部 — Bỏ 蓼科, tiết kiệm 1 đêm.',
       '関越道→北陸道→砺波→黒部 — Nhanh nhất, bỏ Nagano hoàn toàn.',
     ],
+    gallery: [
+      // Thêm ảnh: { src: 'images/plan-a/ten-anh.jpg', caption: 'Mô tả', spot: 'Tên điểm đến' }
+    ],
     days: [
       {
         dayNum: 1,
@@ -62,9 +65,6 @@ const PLANS = {
             food: '牛乳ソフトクリーム tại quầy ven hồ · 信州そば gần đây',
             tips: 'Đến trước 9h — còn vắng, ánh sáng đẹp. Hồ phản chiếu núi tuyệt nhất buổi sáng.',
             weather: '10-18°C · 🌿 Mát trong lành, cao nguyên 1,400m',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Tateshina_Lake_2009.jpg/640px-Tateshina_Lake_2009.jpg', alt: '蓼科湖' },
-            ],
           },
           {
             id: 'a-ropeway',
@@ -77,9 +77,6 @@ const PLANS = {
             food: 'Cafe tại đỉnh — コケモモジュース (nước việt quất núi) đặc sản',
             tips: 'Trên đỉnh lạnh hơn 10°C — mang áo gió. Chuyến sáng ít người. Vé khứ hồi ~¥1,900/người lớn, ¥950/trẻ.',
             weather: '2-10°C · 🏔️ Lạnh trên đỉnh, cần áo gió',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kitayatsugatake_ropeway01s3200.jpg/640px-Kitayatsugatake_ropeway01s3200.jpg', alt: '北八ヶ岳ロープウェイ' },
-            ],
           },
           {
             id: 'a-venusline-drive',
@@ -92,9 +89,6 @@ const PLANS = {
             food: 'Ăn trưa tại ころぼっくるひゅって (cafe nổi tiếng ビーナスライン) hoặc 旅の駅霧ヶ峰ビーナス',
             tips: 'Tháng 5 ít đông hơn hè nhiều. Dừng 車山肩 để chụp ảnh — không gian mở, trẻ chạy thoải mái.',
             weather: '8-15°C · 🌿 Cao nguyên, tuyết + chồi non đan xen',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/VenusLine_Shirakabako.jpg/640px-VenusLine_Shirakabako.jpg', alt: 'ビーナスライン 白樺湖' },
-            ],
           },
           {
             id: 'a-pension-tateshina',
@@ -163,9 +157,6 @@ const PLANS = {
             food: 'Ăn trưa tại フェア: チューリップソフト + 各所屋台',
             tips: '砺波ICから車で5分。Day 2 đến 11:30 ít đông hơn sáng sớm ngày cuối tuần. 5/5 trẻ em miễn phí!',
             weather: '14-20°C · 🌷 チューリップ満開',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Tonami_Tulip_Fair_01.JPG/640px-Tonami_Tulip_Fair_01.JPG', alt: 'となみチューリップフェア' },
-            ],
           },
           {
             id: 'a-shomyo',
@@ -178,9 +169,6 @@ const PLANS = {
             food: 'Kem sữa tươi tại レストハウス称名 (mở đến 17:00)',
             tips: 'Mang áo mưa mỏng — nước bắn ra rất nhiều. Đường paved hoàn toàn, đẩy được xe đẩy.',
             weather: '10-16°C · 🌤️ Mát, ánh chiều → vách đá đỏ rực',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/640px-Shomyo-daki_1.jpg', alt: '称名滝 Shomyo Falls' },
-            ],
           },
           {
             id: 'a-hotaruika',
@@ -193,9 +181,6 @@ const PLANS = {
             food: 'Ăn tối: ほたるいか tempura tươi nhất tại quán bên cạnh',
             tips: 'Live display phòng tối là highlight — trẻ mê nhất. Xem xong ăn ngay tại đây luôn.',
             weather: '15-20°C · 🌆 Chiều tối, ven biển',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Watasenia_scintillans.jpg', alt: 'ほたるいか hotaruika' },
-            ],
           },
           {
             id: 'a-hotel-r9-d2',
@@ -238,9 +223,6 @@ const PLANS = {
             food: 'Ăn sáng tại hotel trước khi đi',
             tips: 'Đặt vé từ 1/4! Chọn toa mở (普通客車). Ngồi bên PHẢI chiều đi để ngắm sông tốt nhất.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ, cảnh xanh',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
-            ],
           },
           {
             id: 'a-unazuki',
@@ -301,6 +283,9 @@ const PLANS = {
       '上信越道→北陸道→砺波→五箇山 — Ngắn hơn 20km, cảnh núi→biển đẹp. (380km · 5h)',
       '中央道→長野道→上信越道→北陸道 — Phải vòng, không khuyên. (430km · 6h)',
     ],
+    gallery: [
+      // Thêm ảnh: { src: 'images/plan-b/ten-anh.jpg', caption: 'Mô tả', spot: 'Tên điểm đến' }
+    ],
     days: [
       {
         dayNum: 1,
@@ -340,9 +325,6 @@ const PLANS = {
             food: 'チューリップソフトクリーム · ほたるいかソフト(挑戦!) · 軽食各所',
             tips: '砺波ICから車で5分。10:30前着推奨（GW混雑）。五箇山へは同じ方向！5/5中学生以下無料。',
             weather: '14-20°C · 🌷 チューリップ満開',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Tonami_Tulip_Fair_01.JPG/640px-Tonami_Tulip_Fair_01.JPG', alt: 'となみチューリップフェア' },
-            ],
           },
           {
             id: 'b-gokayama',
@@ -355,9 +337,6 @@ const PLANS = {
             food: '五箇山豆腐 nướng than · 岩魚塩焼き · amazake ngọt',
             tips: '砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường — không vòng!',
             weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ainokura_in_Gokayama_area.jpg/640px-Ainokura_in_Gokayama_area.jpg', alt: '五箇山 相倉集落' },
-            ],
           },
           {
             id: 'b-hotel-r9-d1',
@@ -400,9 +379,6 @@ const PLANS = {
             food: 'Kem sữa tươi tại レストハウス称名',
             tips: 'Đến trước 9h = ánh sáng + nước mạnh nhất. Mang áo mưa mỏng — nước bắn ra nhiều mét!',
             weather: '10-16°C · 🌤️ Mát, nắng sáng → cầu vồng',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/640px-Shomyo-daki_1.jpg', alt: '称名滝 Shomyo Falls' },
-            ],
           },
           {
             id: 'b-hotaruika',
@@ -415,9 +391,6 @@ const PLANS = {
             food: 'Ăn trưa: ほたるいか tempura tươi nhất có thể',
             tips: 'Live display là highlight. Trẻ em rất thích phòng tối xem mực sáng!',
             weather: '15-20°C · 🌤️ Ven biển, gió mát',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Watasenia_scintillans.jpg', alt: 'ほたるいか' },
-            ],
           },
           {
             id: 'b-uozu',
@@ -430,9 +403,6 @@ const PLANS = {
             food: '白エビ天丼 tại quán ven biển',
             tips: 'Xem show cá (giờ cố định). Rides ~300-400¥/lượt.',
             weather: '15-22°C · 🌤️ Ấm, gió biển',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/UOZU_AQUARIUM.jpg/640px-UOZU_AQUARIUM.jpg', alt: '魚津水族館' },
-            ],
           },
           {
             id: 'b-hotel-r9-d2',
@@ -476,9 +446,6 @@ const PLANS = {
             food: 'Ăn sáng tại hotel trước khi đi',
             tips: 'Đặt vé từ 1/4! Chọn toa mở. Ngồi bên PHẢI chiều đi.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
-            ],
           },
           {
             id: 'b-unazuki',
@@ -552,6 +519,9 @@ const PLANS = {
       '関越道 + 北陸道 via 長岡 — Dễ lái nhất, ít cua. Trẻ ít say. (430km · 6h)',
       '上信越道 xuyên Nagano — Cảnh núi đẹp nhất nhưng cua nhiều, trẻ dễ say. (360km · 5h30)',
     ],
+    gallery: [
+      // Thêm ảnh: { src: 'images/plan-c/ten-anh.jpg', caption: 'Mô tả', spot: 'Tên điểm đến' }
+    ],
     days: [
       {
         dayNum: 1,
@@ -590,9 +560,6 @@ const PLANS = {
             food: '五箇山豆腐 · 岩魚塩焼き',
             tips: 'Exit 北陸道 tại 砺波IC → 東海北陸道 → 五箇山IC. Ghé trên đường, không vòng.',
             weather: '13-18°C · 🌤️ Ấm, có thể mưa nhẹ',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Ainokura_in_Gokayama_area.jpg/640px-Ainokura_in_Gokayama_area.jpg', alt: '五箇山 相倉集落' },
-            ],
           },
           {
             id: 'e-hotel-r9-d1',
@@ -635,9 +602,6 @@ const PLANS = {
             food: null,
             tips: 'Đi sáng sớm = đẹp nhất. Đi bộ 30 phút từ bãi đỗ, đường paved. Mang giày thoải mái.',
             weather: '10-16°C · 🌤️ Mát, nắng sáng đẹp',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/640px-Shomyo-daki_1.jpg', alt: '称名滝 Shomyo Falls' },
-            ],
           },
           {
             id: 'e-hotaruika',
@@ -650,9 +614,6 @@ const PLANS = {
             food: 'Ăn trưa: hotaruika tempura tại quán bên cạnh',
             tips: 'Live display là highlight — đừng bỏ lỡ! Trẻ em rất thích phòng tối xem mực sáng.',
             weather: '15-20°C · 🌤️ Ven biển, gió mát',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Watasenia_scintillans.jpg', alt: 'ほたるいか hotaruika mực phát sáng' },
-            ],
           },
           {
             id: 'e-uozu',
@@ -665,9 +626,6 @@ const PLANS = {
             food: '白エビ天丼 tại quán ven biển',
             tips: 'Xem show cá (giờ cố định). ミラージュランド rides ~300-400¥/lượt. Trẻ chơi thoải mái.',
             weather: '15-22°C · 🌤️ Ấm, ven biển gió mát',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/UOZU_AQUARIUM.jpg/640px-UOZU_AQUARIUM.jpg', alt: '魚津水族館 Uozu Aquarium' },
-            ],
           },
           {
             id: 'e-hotel-r9-d2',
@@ -710,9 +668,6 @@ const PLANS = {
             food: 'Ăn sáng tại hotel trước khi đi',
             tips: 'Đặt vé từ 1/4! Chọn toa mở. Chuyến sớm ít đông.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
-            ],
           },
           {
             id: 'e-unazuki',
@@ -773,6 +728,9 @@ const PLANS = {
       '中央道→長野道→白馬→砺波(tulip detour) — Đi trước 白馬 rồi vòng qua 砺波. (400km+50km detour)',
       '関越道→上信越道→長野→白馬→糸魚川→砺波 — Dài nhưng cảnh đẹp. (460km · 7h)',
     ],
+    gallery: [
+      // Thêm ảnh: { src: 'images/plan-d/ten-anh.jpg', caption: 'Mô tả', spot: 'Tên điểm đến' }
+    ],
     days: [
       {
         dayNum: 1,
@@ -812,9 +770,6 @@ const PLANS = {
             food: 'チューリップソフトクリーム · 軽食各所',
             tips: '砺波ICから車で5分。GW混雑 — 10:30前着推奨。5/5中学生以下無料！Ghé 1h30 rồi đi 白馬.',
             weather: '14-20°C · 🌷 チューリップ満開',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Tonami_Tulip_Fair_01.JPG/640px-Tonami_Tulip_Fair_01.JPG', alt: 'となみチューリップフェア' },
-            ],
           },
           {
             id: 'd-hakuba-village',
@@ -827,9 +782,6 @@ const PLANS = {
             food: 'Shinshu soba · thịt bò Shinshu nướng · bia craft Hakuba Brewing',
             tips: 'Nhiều quán có terrace nhìn ra núi Alps. Bữa tối tại izakaya village rất ngon.',
             weather: '10-18°C · 🏔️ Thung lũng Alps, trong lành',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Happo-one_in_Summer.jpg/640px-Happo-one_in_Summer.jpg', alt: '白馬 Alps' },
-            ],
           },
           {
             id: 'd-hotel-r9-d1',
@@ -873,9 +825,6 @@ const PLANS = {
             food: 'Ăn sáng tại hotel trước. Có nhà hàng tại đỉnh gondola.',
             tips: 'Lên gondola sáng sớm — ít người + ánh sáng đẹp. Mang áo gió dày — trên đỉnh lạnh hơn 10°C.',
             weather: '5-15°C · 🏔️ Mát, cần áo gió dày trên đỉnh',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Happo-one_in_Summer.jpg/640px-Happo-one_in_Summer.jpg', alt: '白馬八方尾根 gondola' },
-            ],
           },
           {
             id: 'd-trolley',
@@ -888,9 +837,6 @@ const PLANS = {
             food: 'Bento mua tại ga hoặc ăn nhẹ trên tàu',
             tips: 'Đặt vé từ 1/4! Chọn toa mở (普通客車). Ngồi bên PHẢI chiều đi.',
             weather: '14-20°C · 🌿 Hẻm núi mát mẻ',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Kurobe_Gorge_Railway_07.jpg/640px-Kurobe_Gorge_Railway_07.jpg', alt: '黒部峡谷トロッコ' },
-            ],
           },
           {
             id: 'd-unazuki',
@@ -915,9 +861,6 @@ const PLANS = {
             food: 'ほたるいか sashimi / tempura tươi',
             tips: 'Live display phòng tối là highlight. Đặt trước nếu được.',
             weather: '15-20°C · 🌙 Mát tối',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Watasenia_scintillans.jpg', alt: 'ほたるいか' },
-            ],
           },
           {
             id: 'd-hotel-r9-d2',
@@ -960,9 +903,6 @@ const PLANS = {
             food: 'Kem sữa tươi tại レストハウス称名',
             tips: 'Đến sớm nhất — tháng 5 nước tuyết tan = thác cực mạnh. Mang áo mưa mỏng!',
             weather: '10-16°C · 🌤️ Mát, nắng sáng → cầu vồng',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Shomyo-daki_1.jpg/640px-Shomyo-daki_1.jpg', alt: '称名滝' },
-            ],
           },
           {
             id: 'd-uozu',
@@ -975,9 +915,6 @@ const PLANS = {
             food: '白エビ天丼 tại quán ven biển — ăn trưa',
             tips: 'Xem show cá (giờ cố định). Rides nhẹ cho bé.',
             weather: '15-22°C · 🌤️ Ấm, gió biển',
-            images: [
-              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/UOZU_AQUARIUM.jpg/640px-UOZU_AQUARIUM.jpg', alt: '魚津水族館' },
-            ],
           },
           {
             id: 'd-rest',

@@ -184,6 +184,8 @@ function renderPlanDetail(planId) {
           ${renderRouteOptions(planId)}
           ${renderWeatherWidget()}
         </div>
+
+        ${renderGallery(planId)}
       </div>
     </div>
   `;
@@ -267,17 +269,97 @@ function renderItinerary(stops, color) {
               <p class="itinerary-stop__desc">${stop.description || ''}</p>
             </div>
           </a>
-          ${stop.images && stop.images.length > 0 ? `
-            <div class="itinerary-stop__gallery">
-              ${stop.images.map(img => `
-                <img src="${img.url}" alt="${img.alt || stop.name}" loading="lazy" onerror="this.style.display='none'">
-              `).join('')}
-            </div>
-          ` : ''}
         `;
       }).join('')}
     </div>
   `).join('');
+}
+
+// ===== GALLERY SLIDESHOW =====
+let galleryIndex = 0;
+
+function renderGallery(planId) {
+  const plan = PLANS[planId];
+  if (!plan.gallery || plan.gallery.length === 0) return '';
+
+  galleryIndex = 0;
+  const gallery = plan.gallery;
+
+  return `
+    <div class="gallery-slideshow" id="gallery-slideshow">
+      <div class="gallery-slideshow__title">📸 Điểm đến Plan ${planId}</div>
+      <div class="gallery-slideshow__viewport">
+        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--prev" onclick="slideGallery(-1)" aria-label="Previous">‹</button>
+        <div class="gallery-slideshow__slide">
+          <img src="${gallery[0].src}" alt="${gallery[0].caption}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23333%22 width=%22400%22 height=%22300%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23888%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2216%22>Ảnh chưa có</text></svg>'">
+        </div>
+        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--next" onclick="slideGallery(1)" aria-label="Next">›</button>
+      </div>
+      <div class="gallery-slideshow__info">
+        <div class="gallery-slideshow__caption" id="gallery-caption">${gallery[0].caption}</div>
+        <div class="gallery-slideshow__spot" id="gallery-spot">📍 ${gallery[0].spot}</div>
+      </div>
+      <div class="gallery-slideshow__dots" id="gallery-dots">
+        ${gallery.map((_, i) => `<span class="gallery-slideshow__dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></span>`).join('')}
+      </div>
+      <div class="gallery-slideshow__counter" id="gallery-counter">1 / ${gallery.length}</div>
+    </div>
+  `;
+}
+
+function slideGallery(direction) {
+  const plan = PLANS[currentPlan];
+  if (!plan.gallery || plan.gallery.length === 0) return;
+
+  galleryIndex = (galleryIndex + direction + plan.gallery.length) % plan.gallery.length;
+  updateGallerySlide();
+}
+
+function goToSlide(index) {
+  galleryIndex = index;
+  updateGallerySlide();
+}
+
+function updateGallerySlide() {
+  const plan = PLANS[currentPlan];
+  const item = plan.gallery[galleryIndex];
+  const slide = document.querySelector('.gallery-slideshow__slide img');
+  const caption = document.getElementById('gallery-caption');
+  const spot = document.getElementById('gallery-spot');
+  const counter = document.getElementById('gallery-counter');
+  const dots = document.querySelectorAll('.gallery-slideshow__dot');
+
+  if (!slide) return;
+
+  slide.style.opacity = '0';
+  setTimeout(() => {
+    slide.src = item.src;
+    slide.alt = item.caption;
+    caption.textContent = item.caption;
+    spot.textContent = '📍 ' + item.spot;
+    counter.textContent = `${galleryIndex + 1} / ${plan.gallery.length}`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === galleryIndex));
+    slide.style.opacity = '1';
+  }, 200);
+}
+
+// Swipe support for gallery
+document.addEventListener('touchstart', handleGalleryTouchStart, { passive: true });
+document.addEventListener('touchend', handleGalleryTouchEnd, { passive: true });
+
+let galleryTouchStartX = 0;
+function handleGalleryTouchStart(e) {
+  const slideshow = document.getElementById('gallery-slideshow');
+  if (!slideshow || !slideshow.contains(e.target)) return;
+  galleryTouchStartX = e.changedTouches[0].screenX;
+}
+function handleGalleryTouchEnd(e) {
+  const slideshow = document.getElementById('gallery-slideshow');
+  if (!slideshow || !slideshow.contains(e.target)) return;
+  const diff = galleryTouchStartX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 50) {
+    slideGallery(diff > 0 ? 1 : -1);
+  }
 }
 
 // ===== SPECIALTIES =====
