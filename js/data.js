@@ -23,7 +23,14 @@ const PLANS = {
       '関越道→北陸道→砺波→黒部 — Nhanh nhất, bỏ Nagano hoàn toàn.',
     ],
     gallery: [
-      // Thêm ảnh: { src: 'images/plan-a/ten-anh.jpg', caption: 'Mô tả', spot: 'Tên điểm đến' }
+      { src: 'images/plan-a/takeshina-kogen.png', caption: '蓼科高原 — cao nguyên xanh mướt, không khí trong lành', spot: '蓼科高原' },
+      { src: 'images/plan-a/takeshina-lake.jpg', caption: '蓼科湖 — mặt hồ phản chiếu núi tuyệt đẹp buổi sáng', spot: '蓼科湖' },
+      { src: 'images/plan-a/kita-yatsugatake.jpg', caption: '北八ヶ岳ロープウェイ — gondola lên 2,237m ngắm 3 dãy Alps', spot: '北八ヶ岳ロープウェイ' },
+      { src: 'images/plan-a/venus-line.jpg', caption: 'ビーナスライン — cung đường đẹp nhất Nagano, đồng cỏ bao la', spot: 'ビーナスライン' },
+      { src: 'images/plan-a/shirakaba-lake.png', caption: '白樺湖 — hồ bạch dương thơ mộng trên ビーナスライン', spot: '白樺湖' },
+      { src: 'images/plan-a/nagano-tualyp.png', caption: 'となみチューリップフェア — 350万本 hoa tulip rực rỡ', spot: 'となみチューリップフェア' },
+      { src: 'images/plan-a/sho-myo.jpeg', caption: '称名滝 — thác cao nhất Nhật Bản 350m, nước đổ hùng vĩ', spot: '称名滝' },
+      { src: 'images/plan-a/hanno-taki.png', caption: 'ハンノキ滝 — thác đôi V-shape chỉ có tháng 5, bên cạnh 称名滝', spot: 'ハンノキ滝' },
     ],
     days: [
       {
