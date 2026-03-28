@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderComparison();
   renderEssentials();
   initNavScroll();
+  initCarouselSnap();
 });
 
 // ===== NAV =====
@@ -61,10 +62,11 @@ function initNavScroll() {
   observer.observe(hero);
 }
 
-// ===== PLAN CARDS =====
+// ===== PLAN CARDS (carousel on mobile) =====
 function renderPlanCards() {
   const container = document.getElementById('plan-cards');
-  container.innerHTML = Object.keys(PLANS).map(id => {
+  const planIds = Object.keys(PLANS);
+  container.innerHTML = planIds.map(id => {
     const plan = PLANS[id];
     return `
       <div class="plan-card ${id === currentPlan ? 'selected' : ''}"
@@ -92,6 +94,95 @@ function renderPlanCards() {
       </div>
     `;
   }).join('');
+
+  // Render carousel dots
+  const dotsContainer = document.getElementById('plan-carousel-dots');
+  dotsContainer.innerHTML = planIds.map(id =>
+    `<span class="plan-carousel__dot ${id === currentPlan ? 'active' : ''}" data-plan="${id}" onclick="selectPlan('${id}')"></span>`
+  ).join('');
+
+  // Scroll selected card into view in carousel
+  requestAnimationFrame(() => {
+    const selected = container.querySelector('.plan-card.selected');
+    if (selected) {
+      selected.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  });
+
+  // Render gallery below cards
+  renderPlanGallery();
+}
+
+// Carousel snap → auto-select plan
+function initCarouselSnap() {
+  const container = document.getElementById('plan-cards');
+  let snapTimer = null;
+
+  container.addEventListener('scrollend', () => {
+    const cards = container.querySelectorAll('.plan-card');
+    const containerRect = container.getBoundingClientRect();
+    const center = containerRect.left + containerRect.width / 2;
+
+    let closest = null;
+    let minDist = Infinity;
+    cards.forEach(card => {
+      const cardRect = card.getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const dist = Math.abs(cardCenter - center);
+      if (dist < minDist) {
+        minDist = dist;
+        closest = card;
+      }
+    });
+
+    if (closest) {
+      const planId = closest.dataset.plan;
+      if (planId !== currentPlan) {
+        selectPlan(planId);
+      }
+    }
+  });
+
+  // Fallback for browsers without scrollend
+  container.addEventListener('scroll', () => {
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(() => {
+      container.dispatchEvent(new Event('scrollend'));
+    }, 150);
+  }, { passive: true });
+}
+
+// ===== PLAN GALLERY (below cards, synced) =====
+function renderPlanGallery() {
+  const container = document.getElementById('plan-gallery');
+  const plan = PLANS[currentPlan];
+
+  if (!plan.gallery || plan.gallery.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  galleryIndex = 0;
+  const gallery = plan.gallery;
+
+  container.innerHTML = `
+    <div class="gallery-slideshow" id="gallery-slideshow">
+      <div class="gallery-slideshow__viewport">
+        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--prev" onclick="slideGallery(-1)" aria-label="Previous">‹</button>
+        <div class="gallery-slideshow__slide">
+          <img src="${gallery[0].src}" alt="${gallery[0].caption}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23f0f0f0%22 width=%22400%22 height=%22300%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2214%22>Ảnh chưa có</text></svg>'">
+        </div>
+        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--next" onclick="slideGallery(1)" aria-label="Next">›</button>
+      </div>
+      <div class="gallery-slideshow__info">
+        <div class="gallery-slideshow__caption" id="gallery-caption">${gallery[0].caption}</div>
+        <div class="gallery-slideshow__spot" id="gallery-spot">📍 ${gallery[0].spot}</div>
+      </div>
+      <div class="gallery-slideshow__dots" id="gallery-dots">
+        ${gallery.map((_, i) => `<span class="gallery-slideshow__dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></span>`).join('')}
+      </div>
+    </div>
+  `;
 }
 
 // ===== SELECT PLAN =====
@@ -184,8 +275,6 @@ function renderPlanDetail(planId) {
           ${renderRouteOptions(planId)}
           ${renderWeatherWidget()}
         </div>
-
-        ${renderGallery(planId)}
       </div>
     </div>
   `;
@@ -278,35 +367,6 @@ function renderItinerary(stops, color) {
 // ===== GALLERY SLIDESHOW =====
 let galleryIndex = 0;
 
-function renderGallery(planId) {
-  const plan = PLANS[planId];
-  if (!plan.gallery || plan.gallery.length === 0) return '';
-
-  galleryIndex = 0;
-  const gallery = plan.gallery;
-
-  return `
-    <div class="gallery-slideshow" id="gallery-slideshow">
-      <div class="gallery-slideshow__title">📸 Điểm đến Plan ${planId}</div>
-      <div class="gallery-slideshow__viewport">
-        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--prev" onclick="slideGallery(-1)" aria-label="Previous">‹</button>
-        <div class="gallery-slideshow__slide">
-          <img src="${gallery[0].src}" alt="${gallery[0].caption}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23333%22 width=%22400%22 height=%22300%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23888%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2216%22>Ảnh chưa có</text></svg>'">
-        </div>
-        <button class="gallery-slideshow__arrow gallery-slideshow__arrow--next" onclick="slideGallery(1)" aria-label="Next">›</button>
-      </div>
-      <div class="gallery-slideshow__info">
-        <div class="gallery-slideshow__caption" id="gallery-caption">${gallery[0].caption}</div>
-        <div class="gallery-slideshow__spot" id="gallery-spot">📍 ${gallery[0].spot}</div>
-      </div>
-      <div class="gallery-slideshow__dots" id="gallery-dots">
-        ${gallery.map((_, i) => `<span class="gallery-slideshow__dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></span>`).join('')}
-      </div>
-      <div class="gallery-slideshow__counter" id="gallery-counter">1 / ${gallery.length}</div>
-    </div>
-  `;
-}
-
 function slideGallery(direction) {
   const plan = PLANS[currentPlan];
   if (!plan.gallery || plan.gallery.length === 0) return;
@@ -326,7 +386,6 @@ function updateGallerySlide() {
   const slide = document.querySelector('.gallery-slideshow__slide img');
   const caption = document.getElementById('gallery-caption');
   const spot = document.getElementById('gallery-spot');
-  const counter = document.getElementById('gallery-counter');
   const dots = document.querySelectorAll('.gallery-slideshow__dot');
 
   if (!slide) return;
@@ -337,7 +396,6 @@ function updateGallerySlide() {
     slide.alt = item.caption;
     caption.textContent = item.caption;
     spot.textContent = '📍 ' + item.spot;
-    counter.textContent = `${galleryIndex + 1} / ${plan.gallery.length}`;
     dots.forEach((dot, i) => dot.classList.toggle('active', i === galleryIndex));
     slide.style.opacity = '1';
   }, 200);
