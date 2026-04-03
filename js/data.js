@@ -14,7 +14,7 @@ const PLANS = {
       { icon: '🌷', text: 'となみチューリップフェア 350万本 — trên đường Day 2' },
       { icon: '💧', text: '称名滝+ハンノキ滝 — double waterfall V-shape tháng 5' },
     ],
-    totalKm: 1141,
+    totalKm: 1181,
     routeGo: '中央道 → 諏訪IC → 蓼科 → ビーナスライン → 松本 → 大町 → 白馬 → 糸魚川 → 砺波 (450km · 2 ngày)',
     routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm, ít cua',
     routeOptions: [
@@ -216,7 +216,8 @@ const PLANS = {
           { from: 'HOTEL R9', to: '宇奈月駅 (トロッコ)', km: 20, time: '25min', mode: 'car' },
           { from: 'トロッコ往復', to: '笹平', km: 16, time: '2h', mode: 'trolley' },
           { from: '宇奈月', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
-          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '雨晴海岸', km: 40, time: '45min', mode: 'car' },
+          { from: '雨晴海岸', to: '向島 (Tokyo) via 北陸道', km: 400, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -256,6 +257,21 @@ const PLANS = {
             weather: '15-22°C · 🌤️',
           },
           {
+            id: 'a-ameharashi',
+            name: '雨晴海岸 (Ameharashi Coast)',
+            lat: 36.7740, lng: 137.0240,
+            arrivalTime: '16:30',
+            duration: 45,
+            type: 'major',
+            description: '富山湾 + 立山連峰 + 赤いJR氷見線 — 3つが重なる奇跡の絶景スポット！Instagramで大バズりした構図そのまま。夕方の光で山のシルエットが浮かび上がる。海岸沿いの遊歩道を散策しながら撮影。3家族で記念写真を残す絶好のチャンス。',
+            food: '近くの氷見漁港エリアで氷見うどん · 氷見寒ぶり (時期による) · ソフトクリーム',
+            tips: '夕方16:00〜17:30が山のシルエットが最も映える時間。北陸道 高岡IC/氷見ICへのアクセス良好 — 東京への帰路にほぼ寄り道なし。駐車場無料。遊歩道はフラットでベビーカー可。',
+            weather: '14-20°C · 🌅 夕方の海岸 — 立山連峰シルエット',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ameharashi_Coast.jpg/640px-Ameharashi_Coast.jpg', alt: '雨晴海岸 富山湾 立山連峰' },
+            ],
+          },
+          {
             id: 'a-return',
             name: 'Xuất phát về Tokyo',
             lat: 35.7180, lng: 139.8130,
@@ -282,7 +298,7 @@ const PLANS = {
       { icon: '🏘️', text: '五箇山 相倉 UNESCO — yên tĩnh, ít đông hơn 白川郷' },
       { icon: '💧', text: '称名滝+ハンノキ滝 V-shape — chỉ có mùa tuyết tan' },
     ],
-    totalKm: 1171,
+    totalKm: 1211,
     routeGo: '関越道 + 北陸道 via 長岡 → 砺波IC → 五箇山IC (400km · 5h30) — dễ lái nhất',
     routeReturn: '北陸道 → 関越道 (400km · 5h) — an toàn lái đêm',
     routeOptions: [
@@ -439,7 +455,8 @@ const PLANS = {
           { from: 'トロッコ往復', to: '笹平', km: 16, time: '2h', mode: 'trolley' },
           { from: '宇奈月', to: 'ヒスイ海岸', km: 35, time: '40min', mode: 'car' },
           { from: 'ヒスイ海岸', to: 'HOTEL R9', km: 35, time: '35min', mode: 'car' },
-          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 400, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '雨晴海岸', km: 40, time: '45min', mode: 'car' },
+          { from: '雨晴海岸', to: '向島 (Tokyo) via 北陸道', km: 370, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -491,6 +508,21 @@ const PLANS = {
             weather: '15-22°C · 🌤️',
           },
           {
+            id: 'b-ameharashi',
+            name: '雨晴海岸 (Ameharashi Coast)',
+            lat: 36.7740, lng: 137.0240,
+            arrivalTime: '16:30',
+            duration: 45,
+            type: 'major',
+            description: '富山湾 + 立山連峰 + 赤いJR氷見線 — 3つが重なる奇跡の絶景スポット！Instagramで大バズりした構図そのまま。夕方の光で山のシルエットが浮かび上がる。海岸沿いの遊歩道を散策しながら撮影。3家族で記念写真を残す絶好のチャンス。',
+            food: '近くの氷見漁港エリアで氷見うどん · 氷見寒ぶり (時期による) · ソフトクリーム',
+            tips: '夕方16:00〜17:30が山のシルエットが最も映える時間。北陸道 高岡IC/氷見ICへのアクセス良好 — 東京への帰路にほぼ寄り道なし。駐車場無料。遊歩道はフラットでベビーカー可。',
+            weather: '14-20°C · 🌅 夕方の海岸 — 立山連峰シルエット',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ameharashi_Coast.jpg/640px-Ameharashi_Coast.jpg', alt: '雨晴海岸 富山湾 立山連峰' },
+            ],
+          },
+          {
             id: 'b-return',
             name: 'Xuất phát về Tokyo',
             lat: 35.7180, lng: 139.8130,
@@ -518,7 +550,7 @@ const PLANS = {
       { icon: '🏘️', text: '五箇山 UNESCO — yên tĩnh, ít đông' },
       { icon: '💰', text: 'Không cần vé Alpine Route — tiết kiệm ~¥55,000' },
     ],
-    totalKm: 1101,
+    totalKm: 1141,
     routeGo: '上信越道 + 北陸道 (380km · 5h30) — cảnh núi→biển đẹp',
     routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm, ít cua',
     routeOptions: [
@@ -661,7 +693,8 @@ const PLANS = {
           { from: 'HOTEL R9', to: '宇奈月駅 (トロッコ)', km: 20, time: '25min', mode: 'car' },
           { from: 'トロッコ往復', to: '笹平', km: 16, time: '2h', mode: 'trolley' },
           { from: '宇奈月', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
-          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '雨晴海岸', km: 40, time: '45min', mode: 'car' },
+          { from: '雨晴海岸', to: '向島 (Tokyo) via 北陸道', km: 400, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -701,6 +734,21 @@ const PLANS = {
             weather: '15-22°C · 🌤️',
           },
           {
+            id: 'c-ameharashi',
+            name: '雨晴海岸 (Ameharashi Coast)',
+            lat: 36.7740, lng: 137.0240,
+            arrivalTime: '16:30',
+            duration: 45,
+            type: 'major',
+            description: '富山湾 + 立山連峰 + 赤いJR氷見線 — 3つが重なる奇跡の絶景スポット！Instagramで大バズりした構図そのまま。夕方の光で山のシルエットが浮かび上がる。海岸沿いの遊歩道を散策しながら撮影。3家族で記念写真を残す絶好のチャンス。',
+            food: '近くの氷見漁港エリアで氷見うどん · 氷見寒ぶり (時期による) · ソフトクリーム',
+            tips: '夕方16:00〜17:30が山のシルエットが最も映える時間。北陸道 高岡IC/氷見ICへのアクセス良好 — 東京への帰路にほぼ寄り道なし。駐車場無料。遊歩道はフラットでベビーカー可。',
+            weather: '14-20°C · 🌅 夕方の海岸 — 立山連峰シルエット',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ameharashi_Coast.jpg/640px-Ameharashi_Coast.jpg', alt: '雨晴海岸 富山湾 立山連峰' },
+            ],
+          },
+          {
             id: 'e-return',
             name: 'Xuất phát về Tokyo',
             lat: 35.7180, lng: 139.8130,
@@ -727,7 +775,7 @@ const PLANS = {
       { icon: '🏔️', text: '白馬 八方尾根ゴンドラ — lên 1,830m, Alps tuyết trắng' },
       { icon: '🚂', text: 'Trolley hẻm V-shape Kurobe + ほたるいか + 称名滝' },
     ],
-    totalKm: 1421,
+    totalKm: 1461,
     routeGo: '関越道 → 北陸道 → 砺波IC → 黒部IC → 大町 → 白馬 (430km · 6h)',
     routeReturn: '北陸道 → 関越道 (430km · 5h) — an toàn lái đêm',
     routeOptions: [
@@ -896,7 +944,8 @@ const PLANS = {
           { from: 'HOTEL R9', to: '称名滝', km: 45, time: '50min', mode: 'car' },
           { from: '称名滝', to: '魚津水族館', km: 55, time: '55min', mode: 'car' },
           { from: '魚津', to: 'HOTEL R9', km: 20, time: '25min', mode: 'car' },
-          { from: 'HOTEL R9', to: '向島 (Tokyo)', km: 430, time: '5h', mode: 'car' },
+          { from: 'HOTEL R9', to: '雨晴海岸', km: 40, time: '45min', mode: 'car' },
+          { from: '雨晴海岸', to: '向島 (Tokyo) via 北陸道', km: 400, time: '5h', mode: 'car' },
         ],
         stops: [
           {
@@ -936,6 +985,21 @@ const PLANS = {
             weather: '15-22°C · 🌤️',
           },
           {
+            id: 'd-ameharashi',
+            name: '雨晴海岸 (Ameharashi Coast)',
+            lat: 36.7740, lng: 137.0240,
+            arrivalTime: '16:30',
+            duration: 45,
+            type: 'major',
+            description: '富山湾 + 立山連峰 + 赤いJR氷見線 — 3つが重なる奇跡の絶景スポット！Instagramで大バズりした構図そのまま。夕方の光で山のシルエットが浮かび上がる。海岸沿いの遊歩道を散策しながら撮影。3家族で記念写真を残す絶好のチャンス。',
+            food: '近くの氷見漁港エリアで氷見うどん · 氷見寒ぶり (時期による) · ソフトクリーム',
+            tips: '夕方16:00〜17:30が山のシルエットが最も映える時間。北陸道 高岡IC/氷見ICへのアクセス良好 — 東京への帰路にほぼ寄り道なし。駐車場無料。遊歩道はフラットでベビーカー可。',
+            weather: '14-20°C · 🌅 夕方の海岸 — 立山連峰シルエット',
+            images: [
+              { url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ameharashi_Coast.jpg/640px-Ameharashi_Coast.jpg', alt: '雨晴海岸 富山湾 立山連峰' },
+            ],
+          },
+          {
             id: 'd-return',
             name: 'Xuất phát về Tokyo',
             lat: 35.7180, lng: 139.8130,
@@ -965,7 +1029,7 @@ const COMPARISON = [
   { label: 'Cần vé Alpine', A: { text: 'Không', type: 'yes' }, B: { text: 'Không', type: 'yes' }, C: { text: 'Không', type: 'yes' }, D: { text: 'Không', type: 'yes' } },
   { label: 'Độ vất vả', A: { text: '🔥🔥', type: 'neutral' }, B: { text: '🔥🔥', type: 'neutral' }, C: { text: '🔥🔥', type: 'neutral' }, D: { text: '🔥🔥', type: 'neutral' } },
   { label: 'Bé < 4 tuổi', A: { text: 'Tốt', type: 'yes' }, B: { text: 'Tốt', type: 'yes' }, C: { text: 'Tốt', type: 'yes' }, D: { text: 'Tốt', type: 'yes' } },
-  { label: 'Tổng km', A: { text: '~1,141km', type: 'neutral' }, B: { text: '~1,171km', type: 'neutral' }, C: { text: '~1,101km', type: 'neutral' }, D: { text: '~1,421km', type: 'neutral' } },
+  { label: 'Tổng km', A: { text: '~1,181km', type: 'neutral' }, B: { text: '~1,211km', type: 'neutral' }, C: { text: '~1,141km', type: 'neutral' }, D: { text: '~1,461km', type: 'neutral' } },
   { label: 'Điểm đặc biệt', A: { text: '蓼科 ビーナスライン', type: 'neutral' }, B: { text: '五箇山 + tulip', type: 'neutral' }, C: { text: '五箇山 + 称名滝', type: 'neutral' }, D: { text: '白馬 gondola + tulip', type: 'neutral' } },
 ];
 
