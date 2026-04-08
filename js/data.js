@@ -31,6 +31,7 @@ const PLANS = {
       { src: 'images/plan-a/nagano-tualyp.png', caption: 'となみチューリップフェア — 350万本 hoa tulip rực rỡ', spot: 'となみチューリップフェア' },
       { src: 'images/plan-a/sho-myo.jpeg', caption: '称名滝 — thác cao nhất Nhật Bản 350m, nước đổ hùng vĩ', spot: '称名滝' },
       { src: 'images/plan-a/hanno-taki.png', caption: 'ハンノキ滝 — thác đôi V-shape chỉ có tháng 5, bên cạnh 称名滝', spot: 'ハンノキ滝' },
+      { src: 'images/plan-a/starbuck-sakura.jpg', caption: 'Starbucks — Đẹp nhất thế giới', spot: 'Starbucks' },
     ],
     days: [
       {
