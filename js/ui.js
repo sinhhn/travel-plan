@@ -530,32 +530,40 @@ async function fetchWeatherForStops(stops, date) {
   const majorStops = stops.filter(s => s.type === 'major' && s.lat && s.lng);
   if (majorStops.length === 0) return null;
 
-  const results = [];
-  for (const stop of majorStops) {
+  // Parallel fetch all stops at once
+  const promises = majorStops.map(async stop => {
     const cacheKey = `${stop.lat},${stop.lng},${date}`;
     if (weatherCache[cacheKey]) {
-      results.push({ name: stop.name, ...weatherCache[cacheKey] });
-      continue;
+      return { name: stop.name, ...weatherCache[cacheKey] };
     }
 
     try {
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${stop.lat}&longitude=${stop.lng}&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=Asia/Tokyo&start_date=${date}&end_date=${date}`;
       const res = await fetch(url);
+      if (!res.ok) {
+        console.warn('Weather API error:', res.status, stop.name);
+        return null;
+      }
       const data = await res.json();
 
-      if (data.daily) {
+      if (data.daily && data.daily.time && data.daily.time.length > 0) {
         const weather = {
           min: Math.round(data.daily.temperature_2m_min[0]),
           max: Math.round(data.daily.temperature_2m_max[0]),
           code: data.daily.weathercode[0],
         };
         weatherCache[cacheKey] = weather;
-        results.push({ name: stop.name, ...weather });
+        return { name: stop.name, ...weather };
       }
-    } catch {
-      // API fail — skip this stop
+      console.warn('Weather API no data for:', stop.name, data);
+      return null;
+    } catch (err) {
+      console.warn('Weather API fetch failed:', stop.name, err.message);
+      return null;
     }
-  }
+  });
+
+  const results = (await Promise.all(promises)).filter(Boolean);
   return results.length > 0 ? results : null;
 }
 
@@ -572,6 +580,25 @@ function renderWeatherWidget() {
   `;
 }
 
+function renderStaticWeather(day, widget, note) {
+  const dayStops = day.stops.filter(s => s.type === 'major' && s.weather);
+  widget.innerHTML = `
+    <div class="weather-widget__title">🌡️ Thời tiết điểm đến (dự báo tham khảo)</div>
+    ${dayStops.length > 0 ? dayStops.map(s => `
+      <div class="weather-widget__row">
+        <span>${s.name.substring(0, 15)}</span>
+        <span class="font-mono">${s.weather}</span>
+      </div>
+    `).join('') : WEATHER.map(w => `
+      <div class="weather-widget__row">
+        <span>${w.location}</span>
+        <span class="font-mono">${w.temp} ${w.icon}</span>
+      </div>
+    `).join('')}
+    ${note ? `<div style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 8px;">${note}</div>` : ''}
+  `;
+}
+
 async function updateWeatherWidget(planId, dayIndex) {
   const plan = PLANS[planId];
   const day = plan.days[dayIndex];
@@ -579,44 +606,12 @@ async function updateWeatherWidget(planId, dayIndex) {
   const widget = document.getElementById('weather-widget');
   if (!widget) return;
 
-  // Check if date is within forecast range (16 days)
-  const now = new Date();
-  const targetDate = new Date(date);
-  const diffDays = Math.ceil((targetDate - now) / 86400000);
-
-  if (diffDays > 16 || diffDays < 0) {
-    // Fallback to static data
-    const dayStops = day.stops.filter(s => s.type === 'major' && s.weather);
-    widget.innerHTML = `
-      <div class="weather-widget__title">🌡️ Thời tiết điểm đến (dự báo tham khảo)</div>
-      ${dayStops.length > 0 ? dayStops.map(s => `
-        <div class="weather-widget__row">
-          <span>${s.name.substring(0, 15)}</span>
-          <span class="font-mono">${s.weather}</span>
-        </div>
-      `).join('') : WEATHER.map(w => `
-        <div class="weather-widget__row">
-          <span>${w.location}</span>
-          <span class="font-mono">${w.temp} ${w.icon}</span>
-        </div>
-      `).join('')}
-      <div style="font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 8px;">
-        📅 Dự báo real-time khả dụng trong 16 ngày trước chuyến đi
-      </div>
-    `;
-    return;
-  }
-
+  // Always try to fetch real data first (Open-Meteo returns data if within 16-day window)
   const weatherData = await fetchWeatherForStops(day.stops, date);
 
   if (!weatherData) {
-    widget.innerHTML = `
-      <div class="weather-widget__title">🌡️ Thời tiết điểm đến</div>
-      <div class="weather-widget__row" style="color: rgba(255,255,255,0.4);">
-        <span>Không tải được dữ liệu</span>
-        <span class="font-mono">⚠️</span>
-      </div>
-    `;
+    // Fallback to static per-stop weather from data.js
+    renderStaticWeather(day, widget, '📅 Dự báo real-time sẽ khả dụng trong 16 ngày trước chuyến đi');
     return;
   }
 
