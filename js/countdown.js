@@ -1,6 +1,6 @@
 // ===== COUNTDOWN TIMER =====
 // Target: 3/5/2026 04:30:00 JST (UTC+9)
-const COUNTDOWN_TARGET = new Date('2026-05-03T06:00:00+09:00');
+const COUNTDOWN_TARGET = new Date('2026-05-03T04:30:00+09:00');
 
 function updateCountdown() {
   const container = document.getElementById('countdown');
