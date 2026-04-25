@@ -235,7 +235,20 @@ function renderPlanDetail(planId) {
             </button>
           `).join('')}
         </div>
-        <div id="leaflet-map" class="plan-viewer__leaflet"></div>
+        <iframe class="plan-viewer__iframe"
+                src="${mapUrl}"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Route map for ${day.title}"></iframe>
+        <div class="plan-viewer__map-legend">
+          ${day.stops.filter(s => s.lat && s.lng).map((s, i) => `
+            <span class="plan-viewer__map-legend-item">
+              <span class="plan-viewer__map-legend-marker" style="background:${plan.color}">${String.fromCharCode(65 + i)}</span>
+              <span>${i + 1}. ${s.name}</span>
+            </span>
+          `).join('')}
+        </div>
       </div>
 
       <!-- Itinerary Panel -->
@@ -288,67 +301,9 @@ function switchDay(dayIndex) {
   renderPlanDetail(currentPlan);
 }
 
-// After render, init map + fetch weather
+// After render, fetch weather
 function afterRenderPlanDetail() {
-  initLeafletMap();
   updateWeatherWidget(currentPlan, currentDay);
-}
-
-// ===== LEAFLET MAP (numbered markers) =====
-let leafletMap = null;
-
-function initLeafletMap() {
-  const mapEl = document.getElementById('leaflet-map');
-  if (!mapEl || typeof L === 'undefined') return;
-
-  // Destroy previous instance to avoid memory leak
-  if (leafletMap) {
-    leafletMap.remove();
-    leafletMap = null;
-  }
-
-  const plan = PLANS[currentPlan];
-  const day = plan.days[currentDay];
-  const stops = day.stops.filter(s => s.lat && s.lng);
-  if (stops.length === 0) return;
-
-  // Init map
-  leafletMap = L.map(mapEl, { zoomControl: true, scrollWheelZoom: false });
-
-  // Tile layer (CartoDB Voyager — clean, modern, free)
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '© OpenStreetMap © CARTO',
-    maxZoom: 19,
-  }).addTo(leafletMap);
-
-  // Numbered markers
-  const color = plan.color;
-  stops.forEach((stop, i) => {
-    const icon = L.divIcon({
-      className: 'leaflet-numbered-marker',
-      html: `<div class="leaflet-numbered-marker__pin" style="background:${color}"><span>${i + 1}</span></div>`,
-      iconSize: [32, 40],
-      iconAnchor: [16, 40],
-      popupAnchor: [0, -40],
-    });
-    L.marker([stop.lat, stop.lng], { icon })
-      .addTo(leafletMap)
-      .bindPopup(`<strong>${i + 1}. ${stop.name}</strong><br><small>${stop.arrivalTime}</small>${stop.address ? `<br><small>📍 ${stop.address}</small>` : ''}`);
-  });
-
-  // Polyline connecting stops in order
-  if (stops.length > 1) {
-    L.polyline(stops.map(s => [s.lat, s.lng]), {
-      color: color,
-      weight: 3,
-      opacity: 0.7,
-      dashArray: '6, 8',
-    }).addTo(leafletMap);
-  }
-
-  // Fit bounds
-  const bounds = L.latLngBounds(stops.map(s => [s.lat, s.lng]));
-  leafletMap.fitBounds(bounds, { padding: [40, 40] });
 }
 
 // ===== MAP HELPERS =====
