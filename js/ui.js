@@ -348,7 +348,7 @@ function renderItinerary(stops, color) {
     <div class="itinerary-group">
       <h4 class="itinerary-group__title">${group.period}</h4>
       ${group.stops.map(stop => {
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${stop.lat},${stop.lng}`;
+        const mapsUrl = stop.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${stop.lat},${stop.lng}`;
         return `
           <a href="${mapsUrl}" target="_blank" rel="noopener" class="itinerary-stop">
             <div class="itinerary-stop__marker ${stop.type}" style="background: ${color}">
@@ -357,6 +357,7 @@ function renderItinerary(stops, color) {
             <div class="itinerary-stop__info">
               <span class="itinerary-stop__time">${formatTime(stop.arrivalTime)}</span>
               <h4 class="itinerary-stop__name">${stop.name}</h4>
+              ${stop.address ? `<div class="itinerary-stop__meta">📍 ${stop.address}</div>` : ''}
               ${stop.food ? `<div class="itinerary-stop__meta">🍜 ${stop.food}</div>` : ''}
               ${stop.duration ? `<div class="itinerary-stop__meta">🕐 ${stop.duration >= 60 ? Math.floor(stop.duration / 60) + 'h' + (stop.duration % 60 ? stop.duration % 60 + 'min' : '') : stop.duration + ' phút'}</div>` : ''}
               <p class="itinerary-stop__desc">${stop.description || ''}</p>
