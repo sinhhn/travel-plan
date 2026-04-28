@@ -5,9 +5,9 @@ let currentDay = 0;
 // ===== DAY DESCRIPTIONS =====
 const DAY_DESCRIPTIONS = {
   A: [
-    '3 xe tập kết nhà anh Hà 6h sáng. Đi 上信越道+北陸道, ghé 五箇山 UNESCO trên đường — yên tĩnh, ít đông. Chiều check-in HOTEL R9.',
-    'Ngày đỉnh cao — Alpine Route: tường tuyết 15m tại Murodo + đập Kurobe. Chiều trolley hẻm núi. Ngày rất dài và đáng nhớ!',
-    'Sáng 環水公園 + TAD rooftop playground. Chiều nghỉ tránh Uターンラッシュ. Về Tokyo sau 19:00 qua 関越道 — đường thông.',
+    '3 xe tập kết nhà anh Hà 4:30 sáng. Đi 中央道, lên 北八ヶ岳ロープウェイ (gondola 2,237m). Trưa ăn tại 白樺湖 + tản bộ. Chiều check-in pension, tản bộ + ăn tối, ngắm sao trời cao nguyên.',
+    '松本城 quốc bảo sáng → 大出公園 postcard view Hakuba → tulip 350万本 → 称名滝 thác đôi → ほたるいか mực phát sáng. Tối check-in HOTEL R9.',
+    'Sáng trolley 宇奈月→笹平 (vé 11:48). Trưa ひみ番屋街 ăn hải sản. Chiều 雨晴海岸 golden hour → tối Starbucks 富岩運河 → onsen tắm rửa → về Tokyo lúc 22:30.',
   ],
   B: [
     '3 xe tập kết nhà anh Hà 6h sáng. Đi 関越道+北陸道 (dễ nhất). Chiều ghé 魚津水族館 + ミラージュランド gần hotel.',
